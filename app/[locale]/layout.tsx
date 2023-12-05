@@ -1,6 +1,6 @@
 import { useLocale } from "next-intl";
-import {notFound} from 'next/navigation';
-// import "./globals.css";
+import { notFound } from "next/navigation";
+import "./globals.css";
 import type { Metadata } from "next";
 // import { Inter } from 'next/font/google'
 
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
+  params: { locale },
 }: {
   children: React.ReactNode;
   params: {
     locale: string;
   };
 }) {
-  const locale = useLocale();
+  const locales = useLocale();
   //not found pages
-  params.locale !== locale && notFound()
+  locale !== locales && notFound();
   return (
     <html lang={locale}>
       <body>
