@@ -1,4 +1,4 @@
-import { useLocale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import type { Metadata } from "next";
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Shopping",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { locale },
 }: {
@@ -20,13 +20,19 @@ export default function RootLayout({
     locale: string;
   };
 }) {
-  const locales = useLocale();
-  //not found pages
-  locale !== locales && notFound();
+  let messages;
+  try {
+    messages = (await import(`@/messages/${locale}.json`)).default;
+  } catch (error) {
+    //error page
+    notFound();
+  }
   return (
     <html lang={locale}>
       <body>
-        <main>{children}</main>
+        <NextIntlClientProvider messages={messages}>
+          <main>{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
