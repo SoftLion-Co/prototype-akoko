@@ -7,35 +7,41 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      inter: ["Inter"],
+    },
+    colors: {
+      primary: "#ffffff",
+      black: "#000",
+      "gray-dark": "#0000006e",
+      "primary-footer": "#3a3a3a",
+      red: "#ff0000",
+      "red-dark": "#af0000",
+      yellow: "#d89e08",
+      blue: "#5b749a",
+    },
+    screens: {
+      mobile: { max: "767.98px" },
+      tablet: { min: "768px" },
+      laptop: { min: "1280px" },
+      desktop: { min: "1600px" },
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "17px",
+        tablet: "15px",
+        laptop: "100px",
+      },
+    },
     extend: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: "16px",
-          mobile: "20px",
-          tablet: "15px",
-          laptop: "100px",
-          desktop: "100px",
-        },
-      },
-      screens: {
-        mobile: { max: "767.98px" },
-        tablet: { min: "768px" },
-        laptop: { min: "1280px" },
-        desktop: { min: "1600px" },
-      },
-      colors: {
-        white: "#FFFFFF",
-        black: "#000",
-        "gray-dark": "#0000006E",
-        "reg-light": "#AF0000",
-        red: "#FF0000",
-        yellow: "#D89E08",
-        "blue-light": "5B749A",
-        "gray-footer": "#3A3A3A",
+      borderRadius: {
+        small: "5px",
+        light: "23px",
+        medium: "36px",
+        large: "50px",
       },
       fontSize: {
-        sm: "0.8rem",
         "14": "14px",
         "16": "16px",
         "20": "20px",
