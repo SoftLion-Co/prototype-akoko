@@ -1,4 +1,10 @@
 {
+  "header": {
+    "sex": {
+      "woman": "Woman",
+      "man": "Man"
+    }
+  },
   "home": {
     "lox": "lox"
   }
