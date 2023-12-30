@@ -35,15 +35,15 @@ p {
 }
 
 h1 {
-  @apply text-20 desktop:text-50 text-black font-600 laptop:text-40 tablet:text-25;
+  @apply text-20 text-black font-600 desktop:text-50 laptop:text-40 tablet:text-25;
 }
 
 h2 {
-  @apply text-16 desktop:text-40 text-black font-600 laptop:text-36 tablet:text-22;
+  @apply text-16 text-black font-600 desktop:text-40 laptop:text-36 tablet:text-22;
 }
 
 p {
-  @apply text-14 desktop:text-20 text-black font-400 laptop:text-16;
+  @apply text-14 text-black font-400 desktop:text-20 laptop:text-16;
 }
 
 ul,
