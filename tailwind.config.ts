@@ -22,6 +22,7 @@ const config: Config = {
       blue: "#5b749a",
     },
     screens: {
+      mobile: { max: "767.8px" },
       tablet: { min: "768px" },
       laptop: { min: "1280px" },
       desktop: { min: "1600px" },

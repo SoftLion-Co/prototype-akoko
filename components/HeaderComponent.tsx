@@ -112,9 +112,9 @@ const HeaderComponent = () => {
           </div>
         </div>
         {/* Logo and switch language*/}
-        <div className="flex items-end gap-[5px] ml-[20px]  tablet:mr-[50px] tablet:ml-0  desktop:mr-[85px]">
+        <div className="flex items-end gap-[5px] tablet:mr-[50px] desktop:mr-[85px] ">
           {/* Logo */}
-          <Link href="/">
+          <Link href="/" className="pl-">
             <Image
               className="w-[78px] h-[28px] tablet:w-[120px] tablet:h-[45px] laptop:w-[190px] laptop:h-[71px] desktop:w-[290px] desktop:h-[89px]"
               src={Logo}
