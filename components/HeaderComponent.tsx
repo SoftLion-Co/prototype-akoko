@@ -96,23 +96,19 @@ const HeaderComponent = () => {
             <input
               placeholder="Search"
               type="text"
-              className="tablet:w-[140px] tablet:ps-[5px] tablet:pe-[18px] tablet:outline-none tablet:border-b-[1px] tablet:rounded-none tablet:h-[18px] laptop:w-[200px] laptop:h-[34px] desktop:w-[250px] desktop:ps-[10px] desktop:pe-[25px] "
+              className="tablet:w-[140px] ps-[5px] pe-[18px] outline-none border-b-[1px] rounded-none h-[18px] laptop:w-[200px] laptop:h-[34px] desktop:w-[250px] desktop:ps-[10px] desktop:pe-[25px] "
               onChange={searchProducts}
             />
             <Image
               src={Search}
               alt="Search"
-              className="absolute right-0 top-0 desktop:w-[24px] desktop:h-[24px]"
+              className="tablet:absolute right-0 top-0 laptop:top-[20%] laptop:w-[18px] laptop:h-[18px] desktop:top-0 desktop:w-[24px] desktop:h-[24px]"
             />
           </div>
 
           {/* Mobile search */}
           <div className="tablet:hidden">
-            <Image
-              src={Search}
-              alt="Search"
-              className="desktop:w-[24px] desktop:h-[24px]"
-            />
+            <Image src={Search} alt="Search" className="w-[17px] h-[17px]" />
           </div>
         </div>
         {/* Logo and switch language*/}
