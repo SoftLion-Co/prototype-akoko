@@ -49,7 +49,11 @@ const productLinks: ProductProps[][] = [
 const HeaderComponent = () => {
   const [isLanguage, setLanguage] = useState(false);
   const [isOpenModal, setOpenModal] = useState(false);
+  const [isVisible, setIsVisible] = useState<"down" | "up" | "default">(
+    "default"
+  );
   const [searchValue, setSearchValue] = useState("");
+  const prevScroll = useRef(0);
   const t = useTranslations("header");
   const locales = useLocale();
   const pathname = usePathname();
@@ -75,6 +79,26 @@ const HeaderComponent = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      const { scrollY } = window;
+      if (scrollY < 130) {
+        setIsVisible("default");
+      } else if (scrollY > prevScroll.current) {
+        setIsVisible("down");
+      } else if (scrollY < prevScroll.current) {
+        setIsVisible("up");
+      }
+      prevScroll.current = scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if ((e.target as HTMLElement).classList.contains("open")) {
         setOpenModal(false);
@@ -89,8 +113,17 @@ const HeaderComponent = () => {
   }, []);
 
   return (
-    <header className="w-full h-auto bg-primary pt-[20px] tablet:h-[76px] laptop:h-[120px] desktop:h-[150px] relative">
-      <div className="container w-screen flex justify-between items-baseline gap-[10px] tablet:gap-0">
+    <header
+      className={classNames(
+        "w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px]",
+        isVisible == "default"
+          ? "sticky"
+          : isVisible == "up"
+          ? "fixed shadow-xl"
+          : "fixed shadow-xl"
+      )}
+    >
+      <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[20px] ">
         {/* Menu and search */}
         <div className="flex-1">
           <div className="flex items-center gap-[20px] tablet:gap-[55px] laptop:gap-[85px] desktop:gap-[120px]">
@@ -207,7 +240,12 @@ const HeaderComponent = () => {
 
       {/* Search mobile */}
       {!isOpenModal && (
-        <div className="block w-screen h-[50px] px-[12px] pb-[9px] pt-[12px] tablet:hidden ">
+        <div
+          className={classNames(
+            "block w-screen h-[50px] px-[12px] pb-[9px] pt-[12px] tablet:hidden ",
+            isVisible == "default" ? "sticky" : isVisible == "down" && "hidden"
+          )}
+        >
           <div className="w-full h-full border rounded-[25px] flex px-[12px]">
             <input
               type="text"
@@ -230,30 +268,32 @@ const HeaderComponent = () => {
         <div
           className={classNames(
             "open",
-            "bg-transparent w-full h-screen absolute top-[96%]"
+            "bg-transparent w-full h-screen absolute top-[99%]"
           )}
         >
-          <div className="bg-primary w-full h-auto shadow-xl pt-[10px] pb-[40px] pl-[15px]">
+          <div className="bg-primary w-full h-auto shadow-xl pt-[10px] pb-[40px]">
             <div className="container flex gap-[30px]">
-              {productLinks.map((productLink, index) => (
-                <div key={index} className="flex flex-col gap-[10px]">
-                  <div className="text-[14px] font-500 tablet:text-[16px] laptop:text-[18px]">
-                    {t(`sex.${index === 0 ? "woman" : "man"}`)}
+              <div className="flex gap-[10px] pl-[15px]">
+                {productLinks.map((productLink, index) => (
+                  <div className="flex flex-col gap-[10px]">
+                    <div className="text-[14px] font-500 tablet:text-[16px] laptop:text-[18px]">
+                      {t(`sex.${index === 0 ? "woman" : "man"}`)}
+                    </div>
+                    <ul className="flex flex-col gap-[5px]">
+                      {productLink.map((item, keys) => (
+                        <li key={keys}>
+                          <Link
+                            href={item.link}
+                            className="text-[14px] font-400 tablet:text-[16px] laptop:text-[18px]"
+                          >
+                            {item.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="flex flex-col gap-[5px]">
-                    {productLink.map((item, keys) => (
-                      <li key={keys}>
-                        <Link
-                          href={item.link}
-                          className="text-[14px] font-400 tablet:text-[16px] laptop:text-[18px]"
-                        >
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
