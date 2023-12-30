@@ -151,7 +151,8 @@ const FooterComponent = () => {
               </p>
               <div className="relative mobile:mb-[46px] tablet:mb-[60px] laptop:mb-[68px] desktop:mb-[86px]">
                 <input
-                  className="px-4 py-2 border-gray-300 focus:border-gray-500 focus:outline-none mobile:w-[200px] h-[34px] tablet:w-[254px] tablet:h-[42px] laptop:w-[304px] laptop:h-[50px] desktop:w-[362px] desktop:h-[60px]"
+                  className="border-gray-300 focus:border-gray-500 focus:outline-none w-[200px] py-[5px] pl-[14px] tablet:w-[254px] tablet:py-[6px] tablet:pl-[22px] tablet:h-[42px] laptop:w-[304px] laptop:py-[26px]
+                  laptop:pl-[26px] desktop:w-[362px] desktop:py-[30px] desktop:pl-[32px]"
                   placeholder="Пошта"
                   type="text"
                   value={email}
