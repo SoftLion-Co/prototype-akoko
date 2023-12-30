@@ -1,5 +1,10 @@
 {
+  "WelcomePage":{
+    "Women": "Women",
+    "Men": "Men"
+  },
   "home": {
     "lox": "lox"
   }
+
 }
