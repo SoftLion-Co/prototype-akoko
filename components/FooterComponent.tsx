@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Logo from "@/images/logo/Akoko.svg";
+import ArrowButton from "@/images/icons/arrow-button.svg";
 
 import Instagram from "@/images/social-networks/instagram.svg";
 import Facebook from "@/images/social-networks/facebook.svg";
@@ -161,10 +162,10 @@ const FooterComponent = () => {
                 <div className="absolute inset-y-0 right-2 flex items-center ">
                   <div className="border border-gray-500 bg-black">
                     <button
-                      className="rounded-md bg-gray-800 text-primary w-[32px] h-[24px] tablet:w-[40px] tablet:h-[30px] laptop:w-[48px] laptop:h-[36px] desktop:w-[56px] desktop:h-[44px]"
+                      className="flex items-center justify-center rounded-md bg-gray-800 text-primary w-[32px] h-[24px] tablet:w-[40px] tablet:h-[30px] laptop:w-[48px] laptop:h-[36px] desktop:w-[56px] desktop:h-[44px]"
                       onClick={handleSubscribeClick}
                     >
-                      +
+                      <Image className="rotate-[270deg]" src={ArrowButton} alt="arrow" />
                     </button>
                   </div>
                 </div>
