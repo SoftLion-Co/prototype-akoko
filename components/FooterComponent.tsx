@@ -171,7 +171,7 @@ const FooterComponent = () => {
             </p>
 
             <div className="mobile:mb-[50px]">
-              <p className="text-primary text-base font-w-500 mb-[20px] text-[14px] tablet:mb-[28px] tablet:text-[16px] laptop:mb-[32px] laptop:text-[20px] desktop:mb-[38px] desktop:text-[26px]">
+              <p className="text-primary text-base font-medium mb-[20px] text-[14px] tablet:mb-[28px] tablet:text-[16px] laptop:mb-[32px] laptop:text-[20px] desktop:mb-[38px] desktop:text-[26px]">
                 Будь в курсі новинок
               </p>
               <div className="relative mobile:mb-[46px] tablet:mb-[60px] laptop:mb-[68px] desktop:mb-[86px]">
@@ -214,7 +214,7 @@ const FooterComponent = () => {
           </div>
         </div>
 
-        <div className="flex mobile:flex-col items-center justify-center gap-[110px] tablet:gap-[200px] laptop:gap-[240px] laptop:items-end laptop:justify-start desktop:gap-[364px]">
+        <div className="flex mobile:flex-col items-center justify-center gap-[110px] tablet:gap-[140px] laptop:gap-[240px] laptop:items-end laptop:justify-start desktop:gap-[364px]">
           <p className="text-primary hidden laptop:block text-[14px] desktop:text-[16px]">
             © AKOKO 2024
           </p>
