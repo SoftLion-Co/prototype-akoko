@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import "./globals.css";
 import type { Metadata } from "next";
 
+import FooterComponent from "@/components/FooterComponent";
+
 export const metadata: Metadata = {
   title: "Akoko",
   description: "Shopping",
@@ -29,6 +31,7 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <main>{children}</main>
+          <FooterComponent />
         </NextIntlClientProvider>
       </body>
     </html>
