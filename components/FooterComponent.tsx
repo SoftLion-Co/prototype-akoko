@@ -106,7 +106,7 @@ const FooterComponent = () => {
               <div className="flex flex-col gap-1">
                 {WomenItems.map((item, index) => (
                   <Link
-                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    className="text-primary transition duration-300 ease-in-out hover:underline text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
                     key={index}
                     href={item.href}
                   >
@@ -122,7 +122,7 @@ const FooterComponent = () => {
               <div className="flex flex-col gap-1">
                 {MenItems.map((item, index) => (
                   <Link
-                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px] transition duration-300 ease-in-out hover:underline"
                     key={index}
                     href={item.href}
                   >
@@ -138,7 +138,7 @@ const FooterComponent = () => {
               <div className="flex flex-col gap-1">
                 {StyleItems.map((item, index) => (
                   <Link
-                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px] transition duration-300 ease-in-out hover:underline"
                     key={index}
                     href={item.href}
                   >
@@ -154,7 +154,7 @@ const FooterComponent = () => {
               <div className="flex flex-col gap-1">
                 {ListOfCategories.map((item, index) => (
                   <Link
-                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px] transition duration-300 ease-in-out hover:underline"
                     key={index}
                     href={item.href}
                   >
