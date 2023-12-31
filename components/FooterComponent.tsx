@@ -218,11 +218,13 @@ const FooterComponent = () => {
           <p className="text-primary hidden laptop:block text-[14px] desktop:text-[16px]">
             © AKOKO 2024
           </p>
-          <Image
-            className="w-[252px] tablet:w-[482px] laptop:w-[408px] desktop:w-[484px]"
-            src={Logo}
-            alt="Logo"
-          />
+          <Link href="/">
+            <Image
+              className="w-[252px] tablet:w-[482px] laptop:w-[408px] desktop:w-[484px]"
+              src={Logo}
+              alt="Logo"
+            />
+          </Link>
         </div>
       </div>
     </footer>
