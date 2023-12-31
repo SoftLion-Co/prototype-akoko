@@ -4,6 +4,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import MainProductCard from "@/components/MainProductCard";
 
+import FooterComponent from "@/components/FooterComponent";
+
 export const metadata: Metadata = {
   title: "Akoko",
   description: "Shopping",
@@ -31,6 +33,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <MainProductCard />
           <main>{children}</main>
+          <FooterComponent />
         </NextIntlClientProvider>
       </body>
     </html>
