@@ -96,44 +96,68 @@ const FooterComponent = () => {
 
   return (
     <footer className="bg-primary-footer">
-      <div className="container flex flex-col gap-[50px] py-20 tablet:gap-[200px]">
+      <div className="container flex flex-col gap-[50px] py-20 tablet:gap-[200px] laptop:gap-[110px] desktop:gap-[156px]">
         <div className="flex flex-wrap laptop:flex-nowrap justify-between">
-          <div className="flex mobile:flex-wrap gap-[40px] mobile:justify-between mb-[60px] tablet:gap-[84px] laptop:gap-[40px]">
+          <div className="flex mobile:flex-wrap gap-[40px] mobile:justify-between mb-[60px] tablet:gap-[76px] laptop:gap-[40px] laptop:mb-[0]">
             <div className="flex flex-col gap-9">
-              <p className="text-primary">Women</p>
+              <p className="text-primary text-[18px] tablet:text-[22px] laptop:text-[18px] desktop:text-[22px]">
+                Women
+              </p>
               <div className="flex flex-col gap-1">
                 {WomenItems.map((item, index) => (
-                  <Link className="text-primary" key={index} href={item.href}>
+                  <Link
+                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    key={index}
+                    href={item.href}
+                  >
                     {item.name}
                   </Link>
                 ))}
               </div>
             </div>
             <div className="flex flex-col gap-9">
-              <p className="text-primary">Men</p>
+              <p className="text-primary text-[18px] tablet:text-[22px] laptop:text-[18px] desktop:text-[22px]">
+                Men
+              </p>
               <div className="flex flex-col gap-1">
                 {MenItems.map((item, index) => (
-                  <Link className="text-primary" key={index} href={item.href}>
+                  <Link
+                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    key={index}
+                    href={item.href}
+                  >
                     {item.name}
                   </Link>
                 ))}
               </div>
             </div>
             <div className="flex flex-col gap-9">
-              <p className="text-primary">Style</p>
+              <p className="text-primary text-[18px] tablet:text-[22px] laptop:text-[18px] desktop:text-[22px]">
+                Style
+              </p>
               <div className="flex flex-col gap-1">
                 {StyleItems.map((item, index) => (
-                  <Link className="text-primary" key={index} href={item.href}>
+                  <Link
+                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    key={index}
+                    href={item.href}
+                  >
                     {item.name}
                   </Link>
                 ))}
               </div>
             </div>
             <div className="flex flex-col gap-9">
-              <p className="text-primary text-primary-footer">/</p>
+              <p className="text-primary text-primary-footer text-[18px] mobile:hidden tablet:text-[22px] laptop:text-[18px] desktop:text-[22px]">
+                /
+              </p>
               <div className="flex flex-col gap-1">
                 {ListOfCategories.map((item, index) => (
-                  <Link className="text-primary" key={index} href={item.href}>
+                  <Link
+                    className="text-primary text-[14px] tablet:text-[18px] laptop:text-[16px] desktop:text-[18px]"
+                    key={index}
+                    href={item.href}
+                  >
                     {item.name}
                   </Link>
                 ))}
@@ -142,30 +166,34 @@ const FooterComponent = () => {
           </div>
 
           <div className="flex flex-col flex-col-reverse items-start tablet:gap-[370px] tablet:flex-row tablet:items-end laptop:items-start">
-            <p className="text-primary mobile:block tablet:block laptop:hidden">
+            <p className="text-primary mobile:block tablet:block tablet:text-[16px] laptop:hidden text-[12px]">
               © AKOKO 2024
             </p>
 
             <div className="mobile:mb-[50px]">
-              <p className="text-primary text-base font-w-500 mobile:mb-[20px] tablet:mb-[28px] laptop:mb-[32px] desktop:mb-[38px]">
+              <p className="text-primary text-base font-w-500 mb-[20px] text-[14px] tablet:mb-[28px] tablet:text-[16px] laptop:mb-[32px] laptop:text-[20px] desktop:mb-[38px] desktop:text-[26px]">
                 Будь в курсі новинок
               </p>
               <div className="relative mobile:mb-[46px] tablet:mb-[60px] laptop:mb-[68px] desktop:mb-[86px]">
                 <input
-                  className="border-gray-300 focus:border-gray-500 focus:outline-none w-[200px] py-[5px] pl-[14px] tablet:w-[254px] tablet:py-[6px] tablet:pl-[22px] tablet:h-[42px] laptop:w-[304px] laptop:py-[26px]
-                  laptop:pl-[26px] desktop:w-[362px] desktop:py-[30px] desktop:pl-[32px]"
+                  className="border-gray-300 focus:border-gray-500 focus:outline-none w-[200px] py-[8px] pl-[14px] text-[12px] tablet:w-[254px] tablet:py-[6px] tablet:pl-[22px] tablet:h-[42px] laptop:w-[304px] laptop:py-[26px]
+                  laptop:pl-[26px] laptop:text-[14px] desktop:w-[362px] desktop:py-[30px] desktop:pl-[32px] desktop:text-[16px]"
                   placeholder="Пошта"
                   type="text"
                   value={email}
                   onChange={handleEmailChange}
                 />
-                <div className="absolute inset-y-0 right-2 flex items-center ">
+                <div className="absolute inset-y-0 right-1 flex items-center ">
                   <div className="border border-gray-500 bg-black">
                     <button
                       className="flex items-center justify-center rounded-md bg-gray-800 text-primary w-[32px] h-[24px] tablet:w-[40px] tablet:h-[30px] laptop:w-[48px] laptop:h-[36px] desktop:w-[56px] desktop:h-[44px]"
                       onClick={handleSubscribeClick}
                     >
-                      <Image className="rotate-[270deg]" src={ArrowButton} alt="arrow" />
+                      <Image
+                        className="rotate-[270deg]"
+                        src={ArrowButton}
+                        alt="arrow"
+                      />
                     </button>
                   </div>
                 </div>
@@ -174,7 +202,11 @@ const FooterComponent = () => {
               <div className="flex gap-5">
                 {SocialNetworks.map((item, index) => (
                   <Link key={index} href={item.href} target="_blank">
-                    <Image src={item.social || ""} alt={item.name} />
+                    <Image
+                      className="w-[28px] tablet:w-[36px] laptop:w-[42px] desktop:w-[50px]"
+                      src={item.social || ""}
+                      alt={item.name}
+                    />
                   </Link>
                 ))}
               </div>
@@ -182,9 +214,15 @@ const FooterComponent = () => {
           </div>
         </div>
 
-        <div className="flex mobile:flex-col items-center justify-center gap-[110px] tablet:gap-[200px] laptop:gap-[240px] laptop:items-start laptop:justify-start desktop:gap-[345px]">
-          <p className="text-primary hidden laptop:block">© AKOKO 2024</p>
-          <Image src={Logo} alt="Logo" />
+        <div className="flex mobile:flex-col items-center justify-center gap-[110px] tablet:gap-[200px] laptop:gap-[240px] laptop:items-end laptop:justify-start desktop:gap-[364px]">
+          <p className="text-primary hidden laptop:block text-[14px] desktop:text-[16px]">
+            © AKOKO 2024
+          </p>
+          <Image
+            className="w-[252px] tablet:w-[482px] laptop:w-[408px] desktop:w-[484px]"
+            src={Logo}
+            alt="Logo"
+          />
         </div>
       </div>
     </footer>
