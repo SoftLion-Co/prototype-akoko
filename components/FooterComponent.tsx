@@ -190,7 +190,7 @@ const FooterComponent = () => {
                       onClick={handleSubscribeClick}
                     >
                       <Image
-                        className="rotate-[270deg]"
+                        className="rotate-[270deg] w-[14px] tablet:w-[18px] laptop:w-[24px] desktop:w-[28px]"
                         src={ArrowButton}
                         alt="arrow"
                       />
