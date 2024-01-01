@@ -1,4 +1,11 @@
 {
+  "header": {
+    "search": "Search",
+    "sex": {
+      "woman": "Woman",
+      "man": "Man"
+    }
+  },
   "home": {
     "lox": "lox"
   }
