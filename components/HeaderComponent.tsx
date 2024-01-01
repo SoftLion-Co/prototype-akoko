@@ -81,7 +81,7 @@ const HeaderComponent = () => {
   useEffect(() => {
     const handleScroll = () => {
       const { scrollY } = window;
-      if (scrollY < 130) {
+      if (scrollY < 60) {
         setIsVisible("default");
       } else if (scrollY > prevScroll.current) {
         setIsVisible("down");
@@ -156,7 +156,7 @@ const HeaderComponent = () => {
         <div className="flex-1">
           <div className="flex items-end gap-[5px]">
             {/* Logo */}
-            <Link href="/">
+            <Link href="/" onClick={() => setOpenModal(false)}>
               <Image
                 className="min-w-[55px] min-h-[23px] w-[78px] tablet:w-[120px] tablet:h-[45px] laptop:w-[190px] laptop:h-[71px] desktop:w-[290px] desktop:h-[89px]"
                 src={Logo}
