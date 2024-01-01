@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import Logo from "@/images/logo.svg";
+import Logo from "@/images/header/Akoko.svg";
 import User from "@/images/icons/user.svg";
 import Menu from "@/images/icons/burger-menu.svg";
 import Cart from "@/images/icons/cart.svg";
