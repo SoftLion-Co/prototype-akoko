@@ -40,7 +40,6 @@ const MainProductCard: React.FC<ProductCardData> = ({
       <p>{name}</p>
 
       <div>
-        {}
         <div className="color"></div>
 
         <div className="flex">
