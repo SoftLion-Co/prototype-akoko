@@ -30,7 +30,9 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <HeaderComponent />
-          <main>{children}</main>
+          <main className="mt-[100px] laptop:mt-[110px] desktop:mt-[150px]">
+            {children}
+          </main>
         </NextIntlClientProvider>
       </body>
     </html>

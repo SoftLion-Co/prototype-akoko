@@ -11,6 +11,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import classNames from "classnames";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 type ProductProps = {
   title: string;
@@ -48,7 +49,7 @@ const productLinks: ProductProps[][] = [
 
 const HeaderComponent = () => {
   const [isLanguage, setLanguage] = useState(false);
-  const [isOpenModal, setOpenModal] = useState(false);
+  const [isModal, setModal] = useState(false);
   const [isVisible, setIsVisible] = useState<"down" | "up" | "default">(
     "default"
   );
@@ -59,8 +60,8 @@ const HeaderComponent = () => {
   const pathname = usePathname();
 
   const handleOpenModal = () => {
-    setOpenModal(!isOpenModal);
-    document.body.classList.toggle("overflow-hidden", !isOpenModal);
+    setModal(!isModal);
+    document.body.classList.toggle("overflow-hidden", !isModal);
     setLanguage(false);
   };
 
@@ -75,13 +76,14 @@ const HeaderComponent = () => {
 
   const handleClickLanguage = () => {
     setLanguage(!isLanguage);
-    setOpenModal(false);
+    // setModal(false);
+    document.body.classList.remove("overflow-hidden");
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const { scrollY } = window;
-      if (scrollY < 60) {
+      if (scrollY < 20) {
         setIsVisible("default");
       } else if (scrollY > prevScroll.current) {
         setIsVisible("down");
@@ -101,7 +103,7 @@ const HeaderComponent = () => {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if ((e.target as HTMLElement).classList.contains("open")) {
-        setOpenModal(false);
+        setModal(false);
         document.body.classList.remove("overflow-hidden");
       }
     };
@@ -115,12 +117,8 @@ const HeaderComponent = () => {
   return (
     <header
       className={classNames(
-        "w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px]",
-        isVisible == "default"
-          ? "sticky"
-          : isVisible == "up"
-          ? "fixed shadow-xl"
-          : "fixed shadow-xl"
+        "fixed w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px]",
+        isVisible == "default" ? "fixed" : "shadow-xl"
       )}
     >
       <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[20px] ">
@@ -156,7 +154,12 @@ const HeaderComponent = () => {
         <div className="flex-1">
           <div className="flex items-end gap-[5px]">
             {/* Logo */}
-            <Link href="/" onClick={() => setOpenModal(false)}>
+            <Link
+              href="/"
+              onClick={() => {
+                setModal(false);
+              }}
+            >
               <Image
                 className="min-w-[55px] min-h-[23px] w-[78px] tablet:w-[120px] tablet:h-[45px] laptop:w-[190px] laptop:h-[71px] desktop:w-[290px] desktop:h-[89px]"
                 src={Logo}
@@ -164,20 +167,14 @@ const HeaderComponent = () => {
               />
             </Link>
             {/* Language */}
-            <div
-              className="flex items-center cursor-pointer relative"
-              onClick={handleClickLanguage}
-            >
-              <Link
-                href={`${pathname}`}
-                className="text-[#000000B2] font-400 text-[8px] laptop:text-[12px] desktop:text-[16px]"
-              >
-                {locales.toUpperCase()}
-              </Link>
-              {isLanguage && (
-                <ul className="absolute top-[20%] w-auto h-auto laptop:top-[80%]">
-                  {locales === "ua" ? (
-                    <li>
+            <div className="flex items-center gap-[3px] cursor-pointer relative">
+              <ul>
+                <li className="text-[#000000B2] font-400 text-[8px] laptop:text-[12px] desktop:text-[16px]">
+                  {locales.toUpperCase()}
+                </li>
+                {isLanguage && (
+                  <li className="absolute top-[20%] w-auto h-auto laptop:top-[90%]">
+                    {locales == "ua" ? (
                       <Link
                         href={`${pathname}`}
                         locale="en"
@@ -185,9 +182,7 @@ const HeaderComponent = () => {
                       >
                         EN
                       </Link>
-                    </li>
-                  ) : (
-                    <li>
+                    ) : (
                       <Link
                         href={`${pathname}`}
                         locale="ua"
@@ -195,15 +190,16 @@ const HeaderComponent = () => {
                       >
                         UA
                       </Link>
-                    </li>
-                  )}
-                </ul>
-              )}
+                    )}
+                  </li>
+                )}
+              </ul>
               <IoIosArrowUp
                 className={classNames(
                   !isLanguage ? "rotate-180" : "rotate-0",
                   "text-[#000000B2] w-[10px] h-[10px] laptop:w-[14px] laptop:h-[18px] desktop:w-[16px] desktop:h-[20px]"
                 )}
+                onClick={() => handleClickLanguage()}
               />
             </div>
           </div>
@@ -237,13 +233,23 @@ const HeaderComponent = () => {
           </div>
         </div>
       </div>
-
       {/* Search mobile */}
-      {!isOpenModal && (
+      <motion.div
+        animate={isVisible == "down" ? "hidden" : "block"}
+        exit="hidden"
+        variants={{
+          hidden: { opacity: 0, y: "-30%" },
+          block: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.3 }}
+        className={classNames(
+          "absolute bg-primary top-[98%]",
+          isVisible == "up" && "shadow-xl"
+        )}
+      >
         <div
           className={classNames(
-            "block w-screen h-[50px] px-[12px] pb-[9px] pt-[12px] tablet:hidden ",
-            isVisible == "default" ? "sticky" : isVisible == "down" && "hidden"
+            "block w-screen h-[50px] px-[12px] pb-[9px] pt-[12px] tablet:hidden"
           )}
         >
           <div className="w-full h-full border rounded-[25px] flex px-[12px]">
@@ -262,42 +268,62 @@ const HeaderComponent = () => {
             </div>
           </div>
         </div>
-      )}
+      </motion.div>
       {/* Modal */}
-      {isOpenModal && (
-        <div
-          className={classNames(
-            "open",
-            "bg-transparent w-full h-screen absolute top-[99%]"
-          )}
-        >
-          <div className="bg-primary w-full h-auto shadow-xl pt-[10px] pb-[40px]">
-            <div className="container flex gap-[30px]">
-              <div className="flex gap-[10px] pl-[15px]">
-                {productLinks.map((productLink, index) => (
-                  <div className="flex flex-col gap-[10px]">
-                    <div className="text-[14px] font-500 tablet:text-[16px] laptop:text-[18px]">
-                      {t(`sex.${index === 0 ? "woman" : "man"}`)}
+      <AnimatePresence>
+        {isModal && (
+          <motion.nav
+            animate={isModal ? "open" : "closed"}
+            initial="default"
+            exit="closed"
+            variants={{
+              closed: { opacity: 0, left: "-200%" },
+              default: { opacity: 0, left: "-200%" },
+              open: { opacity: 1, left: 0 },
+            }}
+            transition={{ duration: 0.3 }}
+            className={classNames(
+              "open",
+              "absolute top-[99%] bg-transparent h-screen w-full"
+            )}
+          >
+            <div className="bg-primary w-full h-auto shadow-xl pt-[10px] pb-[40px]">
+              <div className="container flex gap-[30px]">
+                <div className="flex gap-[10px] pl-[15px]">
+                  {productLinks.map((productLink, index) => (
+                    <div className="flex flex-col gap-[10px]" key={index}>
+                      <Link
+                        href=""
+                        className="text-[14px] font-500 tablet:text-[16px] laptop:text-[18px]"
+                        onClick={() => {
+                          setModal(false);
+                        }}
+                      >
+                        {t(`sex.${index === 0 ? "woman" : "man"}`)}
+                      </Link>
+                      <ul className="flex flex-col gap-[5px]">
+                        {productLink.map((item, keys) => (
+                          <li key={keys}>
+                            <Link
+                              href={item.link}
+                              className="text-[14px] font-400 tablet:text-[16px] laptop:text-[18px]"
+                              onClick={() => {
+                                setModal(false);
+                              }}
+                            >
+                              {item.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="flex flex-col gap-[5px]">
-                      {productLink.map((item, keys) => (
-                        <li key={keys}>
-                          <Link
-                            href={item.link}
-                            className="text-[14px] font-400 tablet:text-[16px] laptop:text-[18px]"
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
