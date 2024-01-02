@@ -3,7 +3,6 @@ import WelcomeSection from "@/sections/welcome_page/WelcomeSection";
 export default function Home() {
   return (
     <section className="w-full ">
-      <WelcomeSection />
       <div className="container">
         <h1 className="font-w-300">Hello world</h1>
         <h2>Для жІнок</h2>
