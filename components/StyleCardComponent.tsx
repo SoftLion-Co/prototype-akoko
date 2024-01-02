@@ -14,7 +14,7 @@ const StyleCardComponent: React.FC<CartProps> = ({ name, img }) => {
         src={""}
         alt="Collection"
       />
-      <p className="w-full">{name}</p>
+      <p className="w-full text-[14px]">{name}</p>
     </div>
   );
 };

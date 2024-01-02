@@ -19,7 +19,7 @@ const StyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
         withControls={false}
         withIndicators
         align="start"
-        slidesToScroll={2}
+        slidesToScroll={1}
         className="mb-[10%] text-[2vw]"
         styles={{
           indicators: {
