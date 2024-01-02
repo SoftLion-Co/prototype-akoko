@@ -1,3 +1,5 @@
+import CollectionSlider from "@/sections/item_page/CollectionSlider/CollectionSlider";
+
 export default function Home() {
   return (
     <section className="w-full mt-[50px]">
@@ -12,6 +14,7 @@ export default function Home() {
         </p>
         z
       </div>
+      <CollectionSlider />
     </section>
   );
 }
