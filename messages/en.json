@@ -6,14 +6,5 @@
       "man": "Man"
     }
   },
-  "home": {
-      "filterButton": {
-        "demin": "Demin",
-        "casual": "Casual",
-        "party": "Party",
-        "leatherlook": "Leather Look",
-        "streetwear": "Streetwear"
-      }
-    }
-  }
-
+  "home": {}
+}
