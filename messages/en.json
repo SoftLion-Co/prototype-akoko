@@ -11,7 +11,8 @@
       "title": "New Collection"
     },
     "style-section": {
-      "title": "Choose your style"
+      "title": "Choose your style",
+      "button": "More styles"
     }
   }
 }
