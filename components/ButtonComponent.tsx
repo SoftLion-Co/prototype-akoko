@@ -1,14 +1,19 @@
 import React from "react";
 
 interface ButtonProps {
+  title: string;
   className: string;
   onClick: () => void;
 }
 
-const ButtonComponent: React.FC<ButtonProps> = ({ className, onClick }) => {
+const ButtonComponent: React.FC<ButtonProps> = ({
+  title,
+  className,
+  onClick,
+}) => {
   return (
     <button className={className} onClick={onClick}>
-      button
+      {title}
     </button>
   );
 };
