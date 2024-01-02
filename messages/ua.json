@@ -1,5 +1,11 @@
 {
   "home": {
-    "lox": "лох"
+    "filterButton": {
+      "demin": "Назва Стилю 1",
+      "casual": "Назва Стилю 2",
+      "party": "Назва Стилю 3",
+      "leatherlook": "Назва Стилю 4",
+      "streetwear": "Назва Стилю 5"
+    }
   }
 }

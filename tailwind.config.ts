@@ -19,6 +19,7 @@ const config: Config = {
       "red-dark": "#af0000",
       yellow: "#d89e08",
       blue: "#5b749a",
+      gray: "#707070",
     },
     screens: {
       mobile: { max: "767.98px" },
