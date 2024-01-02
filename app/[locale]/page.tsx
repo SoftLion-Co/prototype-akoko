@@ -34,7 +34,7 @@ const testProducts: ProductCardData[] = [
 
 const Home: React.FC = () => {
   return (
-    <section className="w-full">
+    <section className="w-full mt-[50px]">
       <div className="container">
         <h1 className="font-w-300">Hello world</h1>
         <h2>Для жінок</h2>
