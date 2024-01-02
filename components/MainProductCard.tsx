@@ -7,50 +7,61 @@ import Wish from "@/images/icons/wish.svg";
 import WishRed from "@/images/icons/wish-red.svg";
 
 interface ProductCardData {
-  productImg?: string;
-  name: string;
-  color?: string[];
+  nameProduct: string;
+  array?: {
+    [color: string]: {
+      image: string;
+      availability: string;
+    };
+  };
   price?: string;
-  availability?: string;
+  showAvailability?: boolean;
   classNames?: string;
 }
 
 const MainProductCard: React.FC<ProductCardData> = ({
-  productImg,
-  name,
-  color,
+  array = {},
+  nameProduct,
   price,
-  availability,
   classNames,
   ...restProps
 }) => {
-  const hasAdditionalContent = color && color.length > 0 && price;
-  const showAvailability = availability !== undefined && availability !== null;
+  const hasAdditionalContent = Object.keys(array).length > 0 && price;
+  const showAvailability =
+    restProps.showAvailability !== undefined &&
+    restProps.showAvailability !== null;
   const [isWishActive, setIsWishActive] = useState(false);
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
   const handleWishClick = () => {
     setIsWishActive(!isWishActive);
   };
 
+  const [selectedColor, setSelectedColor] = useState(Object.keys(array)[0]);
+
   const handleColorClick = (selectedColor: string) => {
+    const newIndex = Object.keys(array).indexOf(selectedColor);
     setSelectedColor(selectedColor);
   };
 
   return (
     <div className={`flex flex-col  ${classNames}`} {...restProps}>
       <div className="relative">
-        <Image
-          className="bg-blue mb-[20px] max-w-[270px] tablet:w-[240px] tablet:mb-[18px] desktop:min-w-[315px] desktop:mb-[24px]"
-          src={""}
+        <img
+          className="object-cover bg-blue mb-[20px] max-w-[270px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px]"
+          src={array && array[selectedColor] ? array[selectedColor].image : ""}
           alt="Product"
           width={325}
           height={420}
         />
-        {showAvailability && (
+
+        {showAvailability && array && (
           <div className="absolute w-full flex items-center h-[64px] bottom-[18px] bg-[#272727] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px]">
-            <p className="flex gap-[20px] text-primary text-[16px] tablet:text-[14px] laptop:text-[16px] desktop:text-[18px]">
-              Наявність:<span>{availability}</span>
+            <p
+              style={{ color: "#FFECEC" }}
+              className="flex gap-[20px] text-[16px] tablet:text-[14px] laptop:text-[16px] desktop:text-[18px]"
+            >
+              Наявність:
+              <span>{array[selectedColor]?.availability}</span>
             </p>
           </div>
         )}
@@ -61,28 +72,22 @@ const MainProductCard: React.FC<ProductCardData> = ({
           !hasAdditionalContent && "flex justify-center text-center"
         }`}
       >
-        {name}
+        {nameProduct}
       </p>
 
       {hasAdditionalContent && (
         <div>
           <div className="flex justify-between mb-[16px] tablet:mb-[14px] laptop:mb-[12px] desktop:mb-[18px]">
-            <ul className="flex gap-[10px] ">
-              {color.map((c, index) => (
-                <li
-                  className={`${selectedColor === c ? "selected" : ""}`}
-                  key={index}
-                  onClick={() => handleColorClick(c)}
-                >
-                  <Link href="#">
-                    <span
-                      className={`inline-block w-6 h-6 rounded-full`}
-                      style={{
-                        backgroundColor: c,
-                        border: `1px solid ${c}`,
-                      }}
-                    ></span>
-                  </Link>
+            <ul className="flex gap-[10px]">
+              {Object.keys(array).map((a, index) => (
+                <li key={index} onClick={() => handleColorClick(a)}>
+                  <span
+                    className={`inline-block w-6 h-6 rounded-full cursor-pointer`}
+                    style={{
+                      backgroundColor: a,
+                      border: `1px solid #d1d5db`,
+                    }}
+                  ></span>
                 </li>
               ))}
             </ul>
