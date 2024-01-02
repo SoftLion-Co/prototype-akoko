@@ -7,6 +7,13 @@
     }
   },
   "home": {
-    "lox": "lox"
+      "filterButton": {
+        "demin": "Demin",
+        "casual": "Casual",
+        "party": "Party",
+        "leatherlook": "Leather Look",
+        "streetwear": "Streetwear"
+      }
+    }
   }
-}
+
