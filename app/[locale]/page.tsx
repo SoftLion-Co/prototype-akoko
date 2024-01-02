@@ -2,8 +2,8 @@ import CollectionSlider from "@/sections/home_page/CollectionSlider/CollectionSl
 
 export default function Home() {
   return (
-    <section className="w-full mt-[50px]">
+    <>
       <CollectionSlider />
-    </section>
+    </>
   );
 }
