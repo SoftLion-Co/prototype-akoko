@@ -8,5 +8,8 @@
   },
   "home": {
     "new-collection": "New Collection"
+  },
+  "components":{
+    "home": "Home"
   }
 }
