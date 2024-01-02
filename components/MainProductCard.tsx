@@ -26,11 +26,15 @@ const MainProductCard: React.FC<ProductCardData> = ({
 }) => {
   const hasAdditionalContent = color && color.length > 0 && price;
   const showAvailability = availability !== undefined && availability !== null;
-
   const [isWishActive, setIsWishActive] = useState(false);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
   const handleWishClick = () => {
     setIsWishActive(!isWishActive);
+  };
+
+  const handleColorClick = (selectedColor: string) => {
+    setSelectedColor(selectedColor);
   };
 
   return (
@@ -66,11 +70,18 @@ const MainProductCard: React.FC<ProductCardData> = ({
             <ul className="flex gap-[10px] ">
               {color.map((c, index) => (
                 <li
-                  className="border-[1px] border-black rounded-[50%]"
+                  className={`${selectedColor === c ? "selected" : ""}`}
                   key={index}
+                  onClick={() => handleColorClick(c)}
                 >
-                  <Link href="">
-                    <span>{c}</span>
+                  <Link href="#">
+                    <span
+                      className={`inline-block w-6 h-6 rounded-full`}
+                      style={{
+                        backgroundColor: c,
+                        border: `1px solid ${c}`,
+                      }}
+                    ></span>
                   </Link>
                 </li>
               ))}
