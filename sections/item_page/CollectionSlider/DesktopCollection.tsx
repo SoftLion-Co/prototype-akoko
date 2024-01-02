@@ -50,12 +50,12 @@ const DesktopCollection: FC = () => {
       <Carousel
         withIndicators
         draggable
-        className="mb-[35px] laptop:mb-[50px] tablet:text-[7px] laptop:text-[9px] desktop:text-[10px]"
+        className="mb-[60px] laptop:mb-[90px] desktop:mb-[120px] tablet:text-[7px] laptop:text-[9px] desktop:text-[10px]"
         styles={{
           indicators: {
             fontSize: "1em",
             alignItems: "center",
-            bottom: "-10%",
+            bottom: "-13%",
             gap: 0,
           },
           indicator: {

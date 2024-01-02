@@ -23,7 +23,7 @@ const MobileCollection: FC = () => {
         withIndicators
         withControls={false}
         skipSnaps
-        className="mb-[50px] text-[2vw]"
+        className="mb-[15%] text-[2vw]"
         styles={{
           indicators: {
             fontSize: "1em",

@@ -9,7 +9,7 @@ const CollectionSlider: FC = () => {
   const t = useTranslations("home");
   return (
     <section>
-      <h1 className="my-[15px] tablet:my-[10px] laptop:my-[20px] desktop:my-[25px] container text-center">
+      <h1 className="my-[40px] laptop:my-[60px] desktop:my-[70px] container text-center">
         {t("new-collection")}
       </h1>
       <MobileCollection />
