@@ -6,6 +6,4 @@ export default function Home() {
       <CollectionSlider />
     </section>
   );
-};
-
-export default Home;
+}
