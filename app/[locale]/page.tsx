@@ -9,7 +9,7 @@ export default function Home() {
           deserunt magnam! Perspiciatis corporis neque voluptatum, temporibus,
           placeat ea officiis cumque ipsa quibusdam animi aspernatur omnis
           facilis ad, expedita voluptate.
-        </p>
+        </p>z
       </div>
     </section>
   );
