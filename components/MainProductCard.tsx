@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import Cart from "@/images/icons/cart.svg";
 import Wish from "@/images/icons/wish.svg";
@@ -22,17 +23,24 @@ const MainProductCard: React.FC<ProductCardData> = ({
   ...restProps
 }) => {
   const hasAdditionalContent = color && color.length > 0 && price;
+  const showAvailability = availability !== undefined && availability !== null;
 
   return (
-    <div className={`flex flex-col ${classNames}`} {...restProps}>
-      <Image
-        className="border-[1px] border-black mb-[24px]"
-        src={""}
-        alt="Product"
-        width={315}
-        height={420}
-      />
-      <div className="h-[66px] bg-[#272727]"></div>
+    <div className={`flex flex-col  ${classNames}`} {...restProps}>
+      <div className="relative">
+        <Image
+          className="mb-[24px]"
+          src={""}
+          alt="Product"
+          width={315}
+          height={420}
+        />
+        {showAvailability && (
+          <div className="absolute w-full flex items-center h-[66px] bg-[#272727] pl-[8px] bottom-[24px]">
+            <p className="text-primary">Наявність: {availability}</p>
+          </div>
+        )}
+      </div>
 
       <p
         className={`text-[18px] h-[60px] mb-[20px] ${
@@ -51,14 +59,18 @@ const MainProductCard: React.FC<ProductCardData> = ({
                   className="border-[1px] border-black rounded-[50%]"
                   key={index}
                 >
-                  {c}
+                  <Link href="">{c}</Link>
                 </div>
               ))}
             </div>
 
             <div className="flex gap-[10px]">
-              <Image src={Cart} alt="Cart" height={25} />
-              <Image src={Wish} alt="Wish" height={30} />
+              <Link href={""}>
+                <Image src={Cart} alt="Cart" height={25} />
+              </Link>
+              <Link href={""}>
+                <Image src={Wish} alt="Wish" height={30} />
+              </Link>
             </div>
           </div>
 

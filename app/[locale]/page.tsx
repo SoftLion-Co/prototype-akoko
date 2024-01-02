@@ -6,15 +6,17 @@ interface ProductCardData {
   name: string;
   color: string[];
   price: string;
+  availability: string;
 }
 
 const testProducts: ProductCardData[] = [
   {
     productImg:
       "https://content1.rozetka.com.ua/goods/images/original/301736389.jpg",
-    name: "Sample Product 1 Sample Product 1 Sample Product 1",
+    name: "Sample Product 1",
     color: ["#00", "#00"],
     price: "$29.99",
+    availability: "11шт",
   },
   {
     productImg:
@@ -22,6 +24,7 @@ const testProducts: ProductCardData[] = [
     name: "Sample Product 2",
     color: ["#00", "#00"],
     price: "$39.99",
+    availability: "16шт",
   },
   {
     productImg:
@@ -29,6 +32,7 @@ const testProducts: ProductCardData[] = [
     name: "Sample Product 3",
     color: ["#00", "#00"],
     price: "$26.99",
+    availability: "25шт",
   },
 ];
 
@@ -45,7 +49,7 @@ const Home: React.FC = () => {
           facilis ad, expedita voluptate.
         </p>
 
-        <div className="flex gap-[55px] flex-basis-[calc(100%/3)] w-[calc(100%/3)]">
+        <div className="flex flex-wrap gap-[55px]">
           {testProducts.map((product, index) => (
             <MainProductCard
               classNames="flex"
@@ -54,6 +58,7 @@ const Home: React.FC = () => {
               name={product.name}
               color={product.color}
               price={product.price}
+              availability={product.availability}
             />
           ))}
         </div>
