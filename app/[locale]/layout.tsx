@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import "./globals.css";
 import type { Metadata } from "next";
 import HeaderComponent from "@/components/HeaderComponent";
-
 import FooterComponent from "@/components/FooterComponent";
 
 export const metadata: Metadata = {
