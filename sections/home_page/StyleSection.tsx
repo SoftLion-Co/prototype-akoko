@@ -5,6 +5,7 @@ import Arrow from "@/images/icons/vector.svg";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import StyleSliderComponent from "@/components/StyleSliderComponent";
+import MainProductCard from "@/components/MainProductCard";
 
 type CartProps = {
   title: string;
@@ -43,18 +44,7 @@ export const StyleSection = () => {
         {/* Cart for tablet, laptop and desktop */}
         <div className="hidden tablet:flex tablet:justify-between">
           {cartItem.map((cart, index) => (
-            <Link href="">
-              <div key={index} className="h-auto">
-                <Image
-                  src={cart.image}
-                  alt={cart.title}
-                  width={150}
-                  height={200}
-                  className="tablet:w-[170px] tablet:h-[210px] laptop:w-[250px] laptop:h-[320px] desktop:w-[324px] desktop:h-[400px]"
-                />
-                <p>{cart.title}</p>
-              </div>
-            </Link>
+            <MainProductCard key={index} name={cart.title} />
           ))}
         </div>
         {/* Mobile slider for cart */}
