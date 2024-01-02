@@ -1,3 +1,5 @@
+import CollectionSlider from "@/sections/item_page/CollectionSlider/CollectionSlider";
+
 export default function Home() {
   return (
     <section className="w-full ">
@@ -11,6 +13,7 @@ export default function Home() {
           facilis ad, expedita voluptate.
         </p>
       </div>
+      <CollectionSlider />
     </section>
   );
 }
