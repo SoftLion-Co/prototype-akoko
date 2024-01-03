@@ -8,5 +8,8 @@
   },
   "home": {
     "new-collection": "Нова колекція"
+  },
+  "components":{
+    "home": "Головна"
   }
 }
