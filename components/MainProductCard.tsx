@@ -40,13 +40,17 @@ const MainProductCard: React.FC<ProductCardData> = ({
   };
 
   const handleMouseEnter = () => {
-    setIsHovered(true);
-    setIsAvailabilityVisible(true);
+    if (window.innerWidth >= 1280) {
+      setIsHovered(true);
+      setIsAvailabilityVisible(true);
+    }
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
-    setIsAvailabilityVisible(false);
+    if (window.innerWidth >= 1280) {
+      setIsHovered(false);
+      setIsAvailabilityVisible(false);
+    }
   };
 
   return (
