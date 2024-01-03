@@ -3,6 +3,7 @@ import { locales } from "@/navigation";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import type { Metadata } from "next";
+import WelcomeSection from "@/sections/welcome_page/WelcomeSection";
 import HeaderComponent from "@/components/HeaderComponent";
 import FooterComponent from "@/components/FooterComponent";
 
@@ -30,7 +31,13 @@ export default async function RootLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <HeaderComponent />
+          <div className="relative">
+            <HeaderComponent />
+            <div className="absolute w-full">
+              <WelcomeSection />
+            </div>
+          </div>
+
           <main className="flex flex-col gap-[75px] mt-[100px] tablet:gap-[120px] laptop:gap-[150px] laptop:mt-[110px] desktop:mt-[150px]">
             {children}
           </main>
