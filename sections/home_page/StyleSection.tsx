@@ -1,37 +1,38 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import Arrow from "@/images/icons/vector.svg";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import StyleSliderComponent from "@/components/StyleSliderComponent";
-import MainProductCard from "@/components/MainProductCard";
+import StyleCardComponent from "@/components/StyleCardComponent";
 
 type CartProps = {
   title: string;
   image: string;
+  link: string;
 };
 
 const cartItem: CartProps[] = [
   {
     title: "Style 1",
-    image:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=",
+    image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
+    link: "/style",
   },
   {
     title: "Style 2",
-    image:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=",
+    image: "https://content2.rozetka.com.ua/goods/images/big/218974949.jpg",
+    link: "/style",
   },
   {
     title: "Style 3",
-    image:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=",
+    image: "https://content2.rozetka.com.ua/goods/images/big/218974949.jpg",
+    link: "/style",
   },
   {
     title: "Style 4",
-    image:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEWAgICQdD0xAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=",
+    image: "https://content2.rozetka.com.ua/goods/images/big/218974949.jpg",
+    link: "/wishlist",
   },
 ];
 
@@ -44,7 +45,12 @@ export const StyleSection = () => {
         {/* Cart for tablet, laptop and desktop */}
         <div className="hidden tablet:flex tablet:justify-between">
           {cartItem.map((cart, index) => (
-            <MainProductCard key={index} name={cart.title} />
+            <StyleCardComponent
+              key={index}
+              link={cart.link}
+              name={cart.title}
+              image={cart.image}
+            />
           ))}
         </div>
         {/* Mobile slider for cart */}
@@ -52,7 +58,7 @@ export const StyleSection = () => {
 
         {/* Button */}
         <Link
-          href=""
+          href="/style"
           className="flex justify-center border-b border-t py-[20px] laptop:py-[35px] desktop:py-[40px]"
         >
           <div className="flex items-center gap-[14px]">
