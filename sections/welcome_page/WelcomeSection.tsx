@@ -25,4 +25,5 @@ const WelcomeSection = () => {
   return showModal && <GenderModal onClose={handleCloseModal} />;
 };
 
+
 export default WelcomeSection;
