@@ -7,9 +7,12 @@
     }
   },
   "home": {
-    "new-collection": "Нова колекція"
-  },
-  "components":{
-    "home": "Головна"
+    "new-collection": {
+      "title": "Нова колекція"
+    },
+    "style-section": {
+      "title": "Оберіть ваш стиль",
+      "button": "Більше стилів"
+    }
   }
 }

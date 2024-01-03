@@ -7,10 +7,13 @@
     }
   },
   "home": {
-    "new-collection": "New Collection"
-  },
-  "components":{
-    "home": "Home"
+    "new-collection": {
+      "title": "New Collection"
+    },
+    "style-section": {
+      "title": "Choose your style",
+      "button": "More styles"
+    }
   }
 
 }

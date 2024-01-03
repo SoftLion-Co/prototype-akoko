@@ -10,7 +10,7 @@ const CollectionSlider: FC = () => {
   return (
     <section>
       <h1 className="my-[40px] laptop:my-[60px] desktop:my-[70px] container text-center">
-        {t("new-collection")}
+        {t("new-collection.title")}
       </h1>
       <MobileCollection />
       <DesktopCollection />
