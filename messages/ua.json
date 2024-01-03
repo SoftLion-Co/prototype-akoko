@@ -7,6 +7,9 @@
     }
   },
   "home": {
-    "lox": "лох"
+    "new-collection": "Нова колекція"
+  },
+  "components":{
+    "home": "Головна"
   }
 }
