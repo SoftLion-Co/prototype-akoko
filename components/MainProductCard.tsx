@@ -11,7 +11,7 @@ interface ProductCardData {
   array?: {
     [color: string]: {
       image: string;
-      availability: string;
+      size: string[];
     };
   };
   price?: string;
@@ -43,37 +43,66 @@ const MainProductCard: React.FC<ProductCardData> = ({
     setSelectedColor(selectedColor);
   };
 
-  return (
-    <div className={`flex flex-col  ${classNames}`} {...restProps}>
-      <div className="relative">
-        <img
-          className="object-cover bg-blue mb-[20px] max-w-[270px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px]"
-          src={array && array[selectedColor] ? array[selectedColor].image : ""}
-          alt="Product"
-          width={325}
-          height={420}
-        />
+  const [isAvailabilityVisible, setIsAvailabilityVisible] = useState(false);
 
-        {showAvailability && array && (
-          <div className="absolute w-full flex items-center h-[64px] bottom-[18px] bg-[#272727] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px]">
+  const handleMouseEnter = () => {
+    setIsAvailabilityVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAvailabilityVisible(false);
+  };
+
+  return (
+    <div
+      className={`flex flex-col ${classNames}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      {...restProps}
+    >
+      <div className="relative group">
+        <Link href={""}>
+          <img
+            className="object-cover bg-blue mb-[20px] max-w-[270px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] transition-opacity duration-300 ease-in-out group-hover:opacity-80"
+            src={
+              array && array[selectedColor] ? array[selectedColor].image : ""
+            }
+            alt="Product"
+            width={325}
+            height={420}
+          />
+        </Link>
+
+        {isAvailabilityVisible && array && (
+          <div className="absolute w-full flex items-center h-[64px] bottom-[18px] bg-[#272727] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px] transition-opacity duration-300 ease-in-out">
             <p
               style={{ color: "#FFECEC" }}
               className="flex gap-[20px] text-[16px] tablet:text-[14px] laptop:text-[16px] desktop:text-[18px]"
-            >
-              Наявність:
-              <span>{array[selectedColor]?.availability}</span>
+            >Наявність:
+              <ul className="flex gap-[20px]">
+                {array[selectedColor].size.map((size, index) => (
+                  <li
+                    className="rounded-[50%] border-solid	border-inherit"
+                    key={index}
+                  >
+                    <Link href={""}>{size}</Link>
+                  </li>
+                ))}
+              </ul>
             </p>
           </div>
         )}
       </div>
 
-      <p
-        className={`font-medium text-[16px] min-h-[48px] mb-[22px] tablet:mb-[10px] min-h-[42px] tablet:text-[14px] laptop:mb-[12px] laptop:text-[16px] min-h-[48px] desktop:mb-[16px] desktop:text-[18px] min-h-[54px] ${
-          !hasAdditionalContent && "flex justify-center text-center"
-        }`}
-      >
-        {nameProduct}
-      </p>
+      <Link href={""}>
+        <p
+          className={`font-medium text-[16px] min-h-[48px] mb-[22px] tablet:mb-[10px] min-h-[42px] tablet:text-[14px] laptop:mb-[12px] laptop:text-[16px] min-h-[48px] desktop:mb-[16px] desktop:text-[18px] min-h-[54px] ${
+            !hasAdditionalContent && "flex justify-center text-center"
+          }`}
+        >
+          {nameProduct}
+        </p>
+      </Link>
 
       {hasAdditionalContent && (
         <div>

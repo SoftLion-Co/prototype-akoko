@@ -5,7 +5,7 @@ interface ProductCardData {
   array?: {
     [color: string]: {
       image: string;
-      availability: string;
+      size: string[];
     };
   };
   nameProduct: string;
@@ -20,11 +20,11 @@ const testProducts: ProductCardData[] = [
     array: {
       "#B22222": {
         image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
-        availability: "247шт",
+        size: ["S", "M", "L"],
       },
       "#384442": {
         image: "https://content.rozetka.com.ua/goods/images/big/300702643.jpg",
-        availability: "98шт",
+        size: ["S", "M", "L"],
       },
     },
     price: "$29.99",
@@ -34,11 +34,11 @@ const testProducts: ProductCardData[] = [
     array: {
       "#3c3c54": {
         image: "https://content2.rozetka.com.ua/goods/images/big/218974949.jpg",
-        availability: "116шт",
+        size: ["S", "M", "L"],
       },
       "#161618": {
         image: "https://content.rozetka.com.ua/goods/images/big/241657054.jpg",
-        availability: "162шт",
+        size: ["S", "M", "L"],
       },
     },
     price: "$67.49",
@@ -48,11 +48,11 @@ const testProducts: ProductCardData[] = [
     array: {
       "#585139": {
         image: "https://content.rozetka.com.ua/goods/images/big/384059048.jpg",
-        availability: "231шт",
+        size: ["S", "M", "L"],
       },
       "#434347": {
         image: "https://content1.rozetka.com.ua/goods/images/big/384059158.jpg",
-        availability: "122шт",
+        size: ["S", "M", "L"],
       },
     },
     price: "$34.99",
@@ -63,16 +63,16 @@ const Home: React.FC = () => {
   return (
     <section className="w-full mt-[50px]">
       <div className="container">
-        <h1 className="font-w-300">Hello world</h1>
+        {/* <h1 className="font-w-300">Hello world</h1>
         <h2>Для жінок</h2>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure vel
           deserunt magnam! Perspiciatis corporis neque voluptatum, temporibus,
           placeat ea officiis cumque ipsa quibusdam animi aspernatur omnis
           facilis ad, expedita voluptate.
-        </p>
+        </p> */}
 
-        <div className="flex justify-center flex-wrap gap-[55px]">
+        <div className="flex justify-center flex-wrap gap-[55px] pt-[40px] pb-[80px] tablet:justify-start">
           {testProducts.map((product, index) => (
             <MainProductCard
               classNames="flex"
