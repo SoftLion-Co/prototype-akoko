@@ -13,6 +13,10 @@
     "style-section": {
       "title": "Оберіть ваш стиль",
       "button": "Більше стилів"
+    },
+    "blog-section": {
+      "blog": "Блог",
+      "instagram": "Instagram"
     }
   }
 }
