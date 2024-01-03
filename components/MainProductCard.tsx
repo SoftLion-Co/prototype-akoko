@@ -77,7 +77,7 @@ const MainProductCard: React.FC<ProductCardData> = ({
           <div
             className={`absolute justify-center w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px] transition-opacity duration-300 ease-in-out`}
           >
-            <ul className="flex gap-[20px]">
+            <ul className="flex gap-[34px]">
               {array[selectedColor].size.map((size, index) => (
                 <li
                   className="rounded-[50%] border-solid border-inherit"
