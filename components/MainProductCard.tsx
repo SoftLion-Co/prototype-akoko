@@ -15,7 +15,6 @@ interface ProductCardData {
     };
   };
   price?: string;
-  showAvailability?: boolean;
   classNames?: string;
 }
 
@@ -27,29 +26,26 @@ const MainProductCard: React.FC<ProductCardData> = ({
   ...restProps
 }) => {
   const hasAdditionalContent = Object.keys(array).length > 0 && price;
-  const showAvailability =
-    restProps.showAvailability !== undefined &&
-    restProps.showAvailability !== null;
   const [isWishActive, setIsWishActive] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(Object.keys(array)[0]);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isAvailabilityVisible, setIsAvailabilityVisible] = useState(false);
 
   const handleWishClick = () => {
     setIsWishActive(!isWishActive);
   };
 
-  const [selectedColor, setSelectedColor] = useState(Object.keys(array)[0]);
-
   const handleColorClick = (selectedColor: string) => {
-    const newIndex = Object.keys(array).indexOf(selectedColor);
     setSelectedColor(selectedColor);
   };
 
-  const [isAvailabilityVisible, setIsAvailabilityVisible] = useState(false);
-
   const handleMouseEnter = () => {
+    setIsHovered(true);
     setIsAvailabilityVisible(true);
   };
 
   const handleMouseLeave = () => {
+    setIsHovered(false);
     setIsAvailabilityVisible(false);
   };
 
@@ -60,10 +56,14 @@ const MainProductCard: React.FC<ProductCardData> = ({
       onMouseLeave={handleMouseLeave}
       {...restProps}
     >
-      <div className="relative group">
+      <div className="relative transition-opacity duration-300 ease-in-out">
         <Link href={""}>
           <img
-            className="object-cover bg-blue mb-[20px] max-w-[270px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] transition-opacity duration-300 ease-in-out group-hover:opacity-80"
+            className={`object-cover bg-blue mb-[20px] max-w-[270px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] ${
+              isHovered
+                ? "opacity-80 transition-opacity duration-300 ease-in-out"
+                : ""
+            }`}
             src={
               array && array[selectedColor] ? array[selectedColor].image : ""
             }
@@ -74,18 +74,22 @@ const MainProductCard: React.FC<ProductCardData> = ({
         </Link>
 
         {isAvailabilityVisible && array && (
-          <div className="absolute w-full flex items-center h-[64px] bottom-[18px] bg-[#272727] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px] transition-opacity duration-300 ease-in-out">
+          <div
+            className={`absolute w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px] transition-opacity duration-300 ease-in-out`}
+          >
             <p
-              style={{ color: "#FFECEC" }}
+              style={{ color: "#000" }}
               className="flex gap-[20px] text-[16px] tablet:text-[14px] laptop:text-[16px] desktop:text-[18px]"
-            >Наявність:
+            >
               <ul className="flex gap-[20px]">
                 {array[selectedColor].size.map((size, index) => (
                   <li
-                    className="rounded-[50%] border-solid	border-inherit"
+                    className="rounded-[50%] border-solid border-inherit"
                     key={index}
                   >
-                    <Link href={""}>{size}</Link>
+                    <Link className="text-[24px] font-medium" href={""}>
+                      {size}
+                    </Link>
                   </li>
                 ))}
               </ul>

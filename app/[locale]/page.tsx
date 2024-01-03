@@ -10,7 +10,6 @@ interface ProductCardData {
   };
   nameProduct: string;
   price?: string;
-  showAvailability?: boolean;
   classNames?: string;
 }
 
@@ -79,7 +78,6 @@ const Home: React.FC = () => {
               key={index}
               // nameProduct={product.nameProduct}
               {...product}
-              showAvailability={true}
             />
           ))}
         </div>
