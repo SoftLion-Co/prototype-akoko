@@ -36,6 +36,12 @@ const config: Config = {
       },
     },
     extend: {
+      height: {
+        'screen-150': 'calc(100vh - 150px)',
+        'screen-111': 'calc(100vh - 111px)',
+        'screen-85': 'calc(100vh - 85px)',
+        'screen-45': 'calc(100vh - 45px)',
+      },
       borderRadius: {
         small: "5px",
         light: "23px",

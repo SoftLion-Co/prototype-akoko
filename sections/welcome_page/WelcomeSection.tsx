@@ -1,54 +1,43 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import SexSelectionModal from "@/components/welcome_page/SelectionComponent";
+import { useState, useEffect } from 'react';
+import GenderModal from "@/components/welcome_page/GenderModal";
 
-type Sex = "man" | "woman";
-
-interface WelcomeSectionProps {
-  sex?: Sex;
-}
-
-const WelcomeSection: React.FC<WelcomeSectionProps> = ({ sex }) => {
-  const [selectedSex, setSelectedSex] = useState<Sex | null>(sex || null);
-  const [scrollEnabled, setScrollEnabled] = useState(true);
+const Home = () => {
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    // Check if 'sex' is already in local storage
-    const storedSex = localStorage.getItem("sex");
-    if (storedSex) {
-      setSelectedSex(storedSex as Sex);
-      setScrollEnabled(false);
+    // Перевірка чи вже визначено значення статі в local storage
+    const storedGender = localStorage.getItem('gender');
+    if (!storedGender) {
+      setShowModal(true);
+
+      // Додаємо обробник подій для блокування прокрутки
+      const handleScroll = () => {
+        document.documentElement.style.overflow = 'hidden';
+      };
+
+      // Встановлюємо обробник подій при відкритті модалки
+      window.addEventListener('scroll', handleScroll);
+
+      // Повертаємо функцію з вибором
+      return () => {
+        // Видаляємо обробник подій та повертаємо прокрутку
+        window.removeEventListener('scroll', handleScroll);
+        document.documentElement.style.overflow = 'auto';
+      };
     }
   }, []);
 
-  const handleSexSelected = (selectedSex: Sex) => {
-    localStorage.setItem("sex", selectedSex);
-    setSelectedSex(selectedSex);
-    setScrollEnabled(true);
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
-  useEffect(() => {
-    // Toggle scroll behavior based on state
-    const handleScroll = () => {
-      if (!scrollEnabled) {
-        window.scrollTo(0, 0);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollEnabled]);
-
-  // If 'sex' is already selected, do not show the selection section
-  if (selectedSex) {
-    return null;
-  }
-
-  // If 'sex' is not selected, show the selection section
-  return <SexSelectionModal onSexSelected={handleSexSelected} />;
+  return (
+    <div>
+      {showModal && <GenderModal onClose={handleCloseModal} />}
+      {/* Додайте ваш вміст */}
+    </div>
+  );
 };
 
-export default WelcomeSection;
+export default Home;
