@@ -99,7 +99,7 @@ const MainProductCard: React.FC<ProductCardData> = ({
 
       <Link href={""}>
         <p
-          className={`font-medium text-[16px] min-h-[48px] mb-[22px] tablet:mb-[10px] min-h-[42px] tablet:text-[14px] laptop:mb-[12px] laptop:text-[16px] min-h-[48px] desktop:mb-[16px] desktop:text-[18px] min-h-[54px] ${
+          className={`font-medium text-[16px] mb-[22px] tablet:mb-[10px] tablet:text-[14px] laptop:mb-[12px] laptop:text-[16px] desktop:mb-[16px] desktop:text-[18px] ${
             !hasAdditionalContent && "flex justify-center text-center"
           }`}
         >
