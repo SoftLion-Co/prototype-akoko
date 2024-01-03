@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect } from "react";
 import SexSelectionModal from "@/components/welcome_page/SelectionComponent";
 
