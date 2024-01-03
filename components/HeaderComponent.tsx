@@ -117,7 +117,7 @@ const HeaderComponent = () => {
   return (
     <header
       className={classNames(
-        "fixed w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px] z-50",
+        "relative fixed w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px] z-50",
         isVisible == "default" ? "fixed" : "shadow-xl"
       )}
     >
