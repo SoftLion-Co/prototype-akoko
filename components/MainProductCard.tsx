@@ -63,7 +63,7 @@ const MainProductCard: React.FC<ProductCardData> = ({
       <div className="relative transition-opacity duration-300 ease-in-out">
         <Link href={""}>
           <img
-            className={`object-cover bg-blue mb-[20px] max-w-[270px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] ${
+            className={`object-cover bg-blue mb-[20px] max-w-[284px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] ${
               isHovered
                 ? "opacity-80 transition-opacity duration-300 ease-in-out"
                 : ""
@@ -79,7 +79,7 @@ const MainProductCard: React.FC<ProductCardData> = ({
 
         {isAvailabilityVisible && array && (
           <div
-            className={`absolute justify-center w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px] transition-opacity duration-300 ease-in-out`}
+            className={`absolute transition-all duration-300 ease-in-out justify-center w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px]`}
           >
             <ul className="flex gap-[34px]">
               {array[selectedColor].size.map((size, index) => (
