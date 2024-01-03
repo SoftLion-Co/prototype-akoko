@@ -76,7 +76,6 @@ const HeaderComponent = () => {
 
   const handleClickLanguage = () => {
     setLanguage(!isLanguage);
-    // setModal(false);
     document.body.classList.remove("overflow-hidden");
   };
 
@@ -252,11 +251,11 @@ const HeaderComponent = () => {
             "block w-screen h-[50px] px-[12px] pb-[9px] pt-[12px] tablet:hidden"
           )}
         >
-          <div className="w-full h-full border rounded-[25px] flex px-[12px]">
+          <div className="w-full h-full border-b flex px-[12px]">
             <input
               type="text"
               placeholder={t("search")}
-              className="grow h-full w-[55%] rounded-[25px] outline-none pl-[5px]"
+              className="grow h-full w-[55%]  outline-none pl-[5px]"
               value={searchValue}
               onChange={handleSearchChange}
             />
@@ -284,7 +283,7 @@ const HeaderComponent = () => {
             transition={{ duration: 0.3 }}
             className={classNames(
               "open",
-              "absolute top-[99%] bg-transparent h-screen w-full"
+              "absolute top-[98%] bg-transparent h-screen w-full"
             )}
           >
             <div className="bg-primary w-full h-auto shadow-xl pt-[10px] pb-[40px]">
