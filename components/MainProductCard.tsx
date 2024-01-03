@@ -7,71 +7,119 @@ import Wish from "@/images/icons/wish.svg";
 import WishRed from "@/images/icons/wish-red.svg";
 
 interface ProductCardData {
-  productImg?: string;
-  name: string;
-  color?: string[];
+  nameProduct: string;
+  array?: {
+    [color: string]: {
+      image: string;
+      size: string[];
+    };
+  };
   price?: string;
-  availability?: string;
   classNames?: string;
 }
 
 const MainProductCard: React.FC<ProductCardData> = ({
-  productImg,
-  name,
-  color,
+  array = {},
+  nameProduct,
   price,
-  availability,
   classNames,
   ...restProps
 }) => {
-  const hasAdditionalContent = color && color.length > 0 && price;
-  const showAvailability = availability !== undefined && availability !== null;
-
+  const hasAdditionalContent = Object.keys(array).length > 0 && price;
   const [isWishActive, setIsWishActive] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(Object.keys(array)[0]);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isAvailabilityVisible, setIsAvailabilityVisible] = useState(false);
 
   const handleWishClick = () => {
     setIsWishActive(!isWishActive);
   };
 
+  const handleColorClick = (selectedColor: string) => {
+    setSelectedColor(selectedColor);
+  };
+
+  const handleMouseEnter = () => {
+    if (window.innerWidth >= 1280) {
+      setIsHovered(true);
+      setIsAvailabilityVisible(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth >= 1280) {
+      setIsHovered(false);
+      setIsAvailabilityVisible(false);
+    }
+  };
+
   return (
-    <div className={`flex flex-col  ${classNames}`} {...restProps}>
-      <div className="relative">
-        <Image
-          className="bg-blue mb-[20px] max-w-[270px] tablet:w-[240px] tablet:mb-[18px] desktop:min-w-[315px] desktop:mb-[24px]"
-          src={""}
-          alt="Product"
-          width={325}
-          height={420}
-        />
-        {showAvailability && (
-          <div className="absolute w-full flex items-center h-[64px] bottom-[18px] bg-[#272727] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px]">
-            <p className="flex gap-[20px] text-primary text-[16px] tablet:text-[14px] laptop:text-[16px] desktop:text-[18px]">
-              Наявність:<span>{availability}</span>
-            </p>
+    <div
+      className={`flex flex-col ${classNames}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      {...restProps}
+    >
+      <div className="relative transition-opacity duration-300 ease-in-out">
+        <Link href={""}>
+          <img
+            className={`object-cover bg-blue mb-[20px] max-w-[284px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] ${
+              isHovered
+                ? "opacity-80 transition-opacity duration-300 ease-in-out"
+                : ""
+            }`}
+            src={
+              array && array[selectedColor] ? array[selectedColor].image : ""
+            }
+            alt="Product"
+            width={325}
+            height={420}
+          />
+        </Link>
+
+        {isAvailabilityVisible && array && (
+          <div
+            className={`absolute transition-all duration-300 ease-in-out justify-center w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px]`}
+          >
+            <ul className="flex gap-[34px]">
+              {array[selectedColor].size.map((size, index) => (
+                <li
+                  className="rounded-[50%] border-solid border-inherit"
+                  key={index}
+                >
+                  <Link className="text-[24px] font-medium" href={""}>
+                    {size}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>
 
-      <p
-        className={`font-medium text-[16px] min-h-[48px] mb-[22px] tablet:mb-[10px] min-h-[42px] tablet:text-[14px] laptop:mb-[12px] laptop:text-[16px] min-h-[48px] desktop:mb-[16px] desktop:text-[18px] min-h-[54px] ${
-          !hasAdditionalContent && "flex justify-center text-center"
-        }`}
-      >
-        {name}
-      </p>
+      <Link href={""}>
+        <p
+          className={`font-medium text-[16px] mb-[22px] tablet:mb-[10px] tablet:text-[14px] laptop:mb-[12px] laptop:text-[16px] desktop:mb-[16px] desktop:text-[18px] ${
+            !hasAdditionalContent && "flex justify-center text-center"
+          }`}
+        >
+          {nameProduct}
+        </p>
+      </Link>
 
       {hasAdditionalContent && (
         <div>
           <div className="flex justify-between mb-[16px] tablet:mb-[14px] laptop:mb-[12px] desktop:mb-[18px]">
-            <ul className="flex gap-[10px] ">
-              {color.map((c, index) => (
-                <li
-                  className="border-[1px] border-black rounded-[50%]"
-                  key={index}
-                >
-                  <Link href="">
-                    <span>{c}</span>
-                  </Link>
+            <ul className="flex gap-[10px]">
+              {Object.keys(array).map((a, index) => (
+                <li key={index} onClick={() => handleColorClick(a)}>
+                  <span
+                    className={`inline-block w-6 h-6 rounded-full cursor-pointer`}
+                    style={{
+                      backgroundColor: a,
+                      border: `1px solid #d1d5db`,
+                    }}
+                  ></span>
                 </li>
               ))}
             </ul>
