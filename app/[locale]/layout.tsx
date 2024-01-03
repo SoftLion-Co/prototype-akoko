@@ -1,8 +1,11 @@
 import { NextIntlClientProvider } from "next-intl";
+import { locales } from "@/navigation";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import type { Metadata } from "next";
 import WelcomeSection from "@/sections/welcome_page/WelcomeSection";
+import HeaderComponent from "@/components/HeaderComponent";
+import FooterComponent from "@/components/FooterComponent";
 
 export const metadata: Metadata = {
   title: "Akoko",
@@ -22,7 +25,6 @@ export default async function RootLayout({
   try {
     messages = (await import(`@/messages/${locale}.json`)).default;
   } catch (error) {
-    //error page
     notFound();
   }
   return (
@@ -30,12 +32,13 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <div className="relative">
-            <h2>Header</h2>
+            <HeaderComponent />
             <WelcomeSection />
           </div>
-
-          <main>{children}</main>
-          <h2>Footer</h2>
+          <main className="flex flex-col gap-[75px] mt-[100px] tablet:gap-[120px] laptop:gap-[150px] laptop:mt-[110px] desktop:mt-[150px]">
+            {children}
+          </main>
+          <FooterComponent />
         </NextIntlClientProvider>
       </body>
     </html>

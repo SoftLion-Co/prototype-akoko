@@ -1,9 +1,15 @@
 {
-  "WelcomePage":{
-    "Women": "Для жінок",
-    "Men": "Для чоловіків"
+  "header": {
+    "search": "Пошук",
+    "sex": {
+      "woman": "Жінка",
+      "man": "Чоловік"
+    }
   },
   "home": {
-    "lox": "лох"
+    "new-collection": "Нова колекція"
+  },
+  "components":{
+    "home": "Головна"
   }
 }

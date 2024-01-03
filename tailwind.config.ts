@@ -20,6 +20,7 @@ const config: Config = {
       "red-dark": "#af0000",
       yellow: "#d89e08",
       blue: "#5b749a",
+      gray: "#707070",
     },
     screens: {
       mobile: { max: "767.98px" },
@@ -30,10 +31,21 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: "17px",
-        tablet: "15px",
-        laptop: "100px",
+        DEFAULT: "15px",
+        tablet: "35px",
+        laptop: "65px",
       },
+    },
+    fontWeight: {
+      "100": "300",
+      "200": "300",
+      "300": "300",
+      "400": "400",
+      "500": "500",
+      "600": "600",
+      "700": "700",
+      "800": "300",
+      "900": "300",
     },
     extend: {
       height: {
@@ -60,13 +72,6 @@ const config: Config = {
         "36": "36px",
         "40": "40px",
         "50": "50px",
-      },
-      fontWeight: {
-        300: "300",
-        400: "400",
-        500: "500",
-        600: "600",
-        700: "700",
       },
     },
   },

@@ -1,11 +1,11 @@
 import createMiddleware from "next-intl/middleware";
+import { locales } from "./navigation";
 
 export default createMiddleware({
-  locales: ["ua", "en"],
-
+  locales,
   defaultLocale: "ua",
 });
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/", "/(en|ua)/:path*"],
 };

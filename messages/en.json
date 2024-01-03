@@ -1,10 +1,16 @@
 {
-  "WelcomePage":{
-    "Women": "Women",
-    "Men": "Men"
+  "header": {
+    "search": "Search",
+    "sex": {
+      "woman": "Woman",
+      "man": "Man"
+    }
   },
   "home": {
-    "lox": "lox"
+    "new-collection": "New Collection"
+  },
+  "components":{
+    "home": "Home"
   }
 
 }

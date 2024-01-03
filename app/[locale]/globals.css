@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,300;1,100&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,15 +37,15 @@ p {
 }
 
 h1 {
-  @apply desktop:text-50 text-black font-600 laptop:text-40 tablet:text-25 mobile:text-20;
+  @apply text-20 text-black font-600 desktop:text-50 laptop:text-40 tablet:text-25;
 }
 
 h2 {
-  @apply desktop:text-40 text-black font-600 laptop:text-36 tablet:text-22 mobile:text-16;
+  @apply text-16 text-black font-600 desktop:text-40 laptop:text-36 tablet:text-22;
 }
 
 p {
-  @apply desktop:text-20 text-black font-400 laptop:text-16 mobile:text-14;
+  @apply text-14 text-black font-400 desktop:text-20 laptop:text-16;
 }
 
 ul,
