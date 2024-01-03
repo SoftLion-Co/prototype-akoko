@@ -33,8 +33,11 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <div className="relative">
             <HeaderComponent />
-            <WelcomeSection />
+            <div className="absolute w-full">
+              <WelcomeSection />
+            </div>
           </div>
+
           <main className="flex flex-col gap-[75px] mt-[100px] tablet:gap-[120px] laptop:gap-[150px] laptop:mt-[110px] desktop:mt-[150px]">
             {children}
           </main>
