@@ -75,25 +75,20 @@ const MainProductCard: React.FC<ProductCardData> = ({
 
         {isAvailabilityVisible && array && (
           <div
-            className={`absolute w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px] transition-opacity duration-300 ease-in-out`}
+            className={`absolute justify-center w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px] transition-opacity duration-300 ease-in-out`}
           >
-            <p
-              style={{ color: "#000" }}
-              className="flex gap-[20px] text-[16px] tablet:text-[14px] laptop:text-[16px] desktop:text-[18px]"
-            >
-              <ul className="flex gap-[20px]">
-                {array[selectedColor].size.map((size, index) => (
-                  <li
-                    className="rounded-[50%] border-solid border-inherit"
-                    key={index}
-                  >
-                    <Link className="text-[24px] font-medium" href={""}>
-                      {size}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </p>
+            <ul className="flex gap-[20px]">
+              {array[selectedColor].size.map((size, index) => (
+                <li
+                  className="rounded-[50%] border-solid border-inherit"
+                  key={index}
+                >
+                  <Link className="text-[24px] font-medium" href={""}>
+                    {size}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>
