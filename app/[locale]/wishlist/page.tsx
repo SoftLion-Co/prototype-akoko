@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import NavigationComponent from "@/components/NavigationComponent";
 
 const page = () => {
-	return (
-		<div>page</div>
-	)
-}
+  const links = [{ title: "Головна", href: "/page" }];
 
-export default page
+  return (
+    <div className="container">
+      <NavigationComponent links={links} />
+    </div>
+  );
+};
+
+export default page;
