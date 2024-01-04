@@ -7,25 +7,31 @@ import Wish from "@/images/icons/wish.svg";
 import WishRed from "@/images/icons/wish-red.svg";
 
 interface ProductCardData {
-  nameProduct: string;
+  arrayColection?: {
+    nameProduct: string;
+    collectionImage: string;
+  };
+
   array?: {
     [color: string]: {
+      nameProduct: string;
       image: string;
       size: string[];
+      price: string;
     };
   };
-  price?: string;
+
   classNames?: string;
 }
 
 const MainProductCard: React.FC<ProductCardData> = ({
+  arrayColection = {},
   array = {},
-  nameProduct,
-  price,
   classNames,
   ...restProps
 }) => {
-  const hasAdditionalContent = Object.keys(array).length > 0 && price;
+  const hasAdditionalContent = Object.keys(array).length > 0;
+  const isCollection = Object.keys(arrayColection).length > 0;
   const [isWishActive, setIsWishActive] = useState(false);
   const [selectedColor, setSelectedColor] = useState(Object.keys(array)[0]);
   const [isHovered, setIsHovered] = useState(false);
@@ -69,7 +75,9 @@ const MainProductCard: React.FC<ProductCardData> = ({
                 : ""
             }`}
             src={
-              array && array[selectedColor] ? array[selectedColor].image : ""
+              isCollection
+                ? arrayColection.collectionImage
+                : array[selectedColor]?.image || ""
             }
             alt="Product"
             width={325}
@@ -77,12 +85,12 @@ const MainProductCard: React.FC<ProductCardData> = ({
           />
         </Link>
 
-        {isAvailabilityVisible && array && (
+        {isAvailabilityVisible && array && hasAdditionalContent && (
           <div
             className={`absolute transition-all duration-300 ease-in-out justify-center w-full flex items-center h-[64px] bottom-[18px] bg-[#ffffff80] pl-[8px] tablet:h-[58px] desktop:h-[70px] desktop:bottom-[24px]`}
           >
             <ul className="flex gap-[34px]">
-              {array[selectedColor].size.map((size, index) => (
+              {array[selectedColor]?.size.map((size, index) => (
                 <li
                   className="rounded-[50%] border-solid border-inherit"
                   key={index}
@@ -103,7 +111,9 @@ const MainProductCard: React.FC<ProductCardData> = ({
             !hasAdditionalContent && "flex justify-center text-center"
           }`}
         >
-          {nameProduct}
+          {isCollection
+            ? arrayColection.nameProduct
+            : array[selectedColor]?.nameProduct || ""}
         </p>
       </Link>
 
@@ -140,7 +150,7 @@ const MainProductCard: React.FC<ProductCardData> = ({
           </div>
 
           <p className="flex gap-[20px] text-[16px] tablet:text-[14px] laptop:text-[16px] desktop:text-[18px]">
-            Ціна:<span>{price}</span>
+            Ціна:<span>{array[selectedColor]?.price}</span>
           </p>
         </div>
       )}
