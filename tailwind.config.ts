@@ -31,9 +31,9 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: "17px",
-        tablet: "15px",
-        laptop: "100px",
+        DEFAULT: "15px",
+        tablet: "35px",
+        laptop: "65px",
       },
     },
     fontWeight: {
