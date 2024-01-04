@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "@/navigation";
+import Link from "next/link";
 import { useRef } from "react";
 import Image from "next/image";
 import { Carousel } from "@mantine/carousel";
@@ -45,18 +45,23 @@ const slides = [
     link: "https://open.spotify.com/",
   },
 ];
-const NextArrow = () => {
+
+interface ArrowProps {
+  className: string;
+}
+
+const NextArrow: React.FC<ArrowProps> = ({ className }) => {
   return (
-    <div className="cursor-pointer  rotate-180 w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px] ">
-      <Image className="w-full h-full" src={Arrow} alt="" />
+    <div className={className}>
+      <Image src={Arrow} alt="Next slide" className="w-full h-full" />
     </div>
   );
 };
 
-const PrevArrow = () => {
+const PrevArrow: React.FC<ArrowProps> = ({ className }) => {
   return (
-    <div className="cursor-pointer w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px] ">
-      <Image className="w-full h-full" src={Arrow} alt="" />
+    <div className={className}>
+      <Image src={Arrow} alt="Previous slide" className="w-full h-full" />
     </div>
   );
 };
@@ -65,15 +70,22 @@ const HeroSection = () => {
   const autoplay = useRef(Autoplay({ delay: 3000 }));
   return (
     <section>
-      <div className=" relative h-[144px] tablet:h-[347px] laptop:h-[576px] desktop:h-[720px]">
+      <div className="relative h-[100%] tablet:h-[347px] laptop:h-[576px] desktop:h-[720px]">
         <Carousel
-          className=""
           withIndicators
           loop
+          height="100%"
           plugins={[autoplay.current]}
           onMouseEnter={autoplay.current.stop}
           onMouseLeave={autoplay.current.reset}
           styles={{
+            viewport: {
+              width: "100vw",
+              height: "70vh",
+              "@media (min-width: 768px)": {
+                height: "100%",
+              },
+            },
             indicators: {
               fontSize: "1em",
               alignItems: "center",
@@ -81,114 +93,166 @@ const HeroSection = () => {
               left: "60%",
               transform: "translateY(50%)",
               gap: "2px",
-              "@media (min-width: 768px)": {},
-              //laptop
-              "@media (min-width: 1280px)": {},
-              //desktop
-              "@media (min-width: 1600px)": {},
+            },
+            indicators: {
+              position: "absolute",
+              top: "1px",
+              bottom: "0",
+              width: "90%",
+              padding: "0 15px",
+              margin: "0 auto",
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              gap: "2px",
+
+              "@media (min-width: 768px)": {
+                maxWidth: "660px",
+                padding: "0 35px",
+                gap: "6px",
+              },
+              "@media (min-width: 1280px)": {
+                maxWidth: "1150px",
+                padding: "0 65px",
+                gap: "9px",
+              },
+              "@media (min-width: 1600px)": {
+                maxWidth: "1410px",
+                gap: "12px",
+              },
             },
             indicator: {
               zIndex: 10,
-              fontSize: "1em",
-              height: "4px !important",
-              width: "4px !important",
+              height: "7px",
+              width: "7px",
               backgroundColor: "#000000 !important",
               borderRadius: "50%",
 
-              "&[data-active]": {
-                width: "6px !important",
-                height: "6px !important",
-                // tablet
-                "@media (min-width: 768px)": {
-                  height: "15px !important",
-                  width: "15px !important",
-                },
-                //laptop
-                "@media (min-width: 1280px)": {
-                  height: "25px !important",
-                  width: "25px !important",
-                },
-                //desktop
-                "@media (min-width: 1600px)": {
-                  height: "32px !important",
-                  width: "32px !important",
-                },
-              },
-              // tablet
               "@media (min-width: 768px)": {
-                height: "9px !important",
-                width: "9px !important",
+                height: "9px",
+                width: "9px",
               },
-              //laptop
               "@media (min-width: 1280px)": {
-                height: "15px !important",
-                width: "15px !important",
+                height: "15px",
+                width: "15px",
               },
-              //desktop
               "@media (min-width: 1600px)": {
-                height: "18px !important",
-                width: "18px !important",
+                height: "18px",
+                width: "18px",
+              },
+
+              "&[data-active]": {
+                marginLeft: "10px",
+                width: "9px",
+                height: "9px",
+                "@media (min-width: 768px)": {
+                  height: "15px",
+                  width: "15px",
+                },
+                "@media (min-width: 1280px)": {
+                  height: "25px",
+                  width: "25px",
+                },
+                "@media (min-width: 1600px)": {
+                  height: "32px",
+                  width: "31px",
+                },
               },
             },
-            control: {
-              "&:first-of-type": {
-                maxWidth: "320px",
+            controls: {
+              display: "none",
+
+              "@media (min-width: 768px)": {
+                display: "block",
                 position: "absolute",
-                right: "5px",
+                width: "100%",
+                margin: "0 auto",
+                maxWidth: "768px",
+                padding: "0 35px",
+              },
+              "@media (min-width: 1280px)": {
+                maxWidth: "1280px",
+                padding: "0 65px",
+              },
+              "@media (min-width: 1600px)": {
+                maxWidth: "1600px",
+              },
+            },
+
+            control: {
+              position: "absolute",
+              right: "0",
+              marginRight: "5px",
+
+              "@media (min-width: 768px)": {
+                right: "25px",
+              },
+              "@media (min-width: 1280px)": {
+                right: "50px",
+              },
+
+              "&:first-of-type": {
+                position: "absolute",
                 top: "60px",
-                // tablet
                 "@media (min-width: 768px)": {
-                  maxWidth: "738px",
-                  right: "30px",
-                  top: "70px",
+                  top: "30px",
                 },
-                //laptop
-                "@media (min-width: 1280px)": {},
-                //desktop
-                "@media (min-width: 1600px)": {},
+                "@media (min-width: 1280px)": {
+                  top: "55px",
+                },
               },
               "&:last-of-type": {
                 position: "absolute",
-                right: "5px",
-                top: "45px",
+                top: "80px",
                 "@media (min-width: 768px)": {
-                  right: "30px",
-                  top: "50px",
+                  top: "55px",
                 },
-                //laptop
-                "@media (min-width: 1280px)": {},
-                //desktop
-                "@media (min-width: 1600px)": {},
+                "@media (min-width: 1280px)": {
+                  top: "100px",
+                },
               },
               background: "none",
               border: "none",
               boxShadow: "none",
             },
           }}
-          nextControlIcon={<PrevArrow />}
-          previousControlIcon={<NextArrow />}
+          nextControlIcon={
+            <PrevArrow className="cursor-pointer  rotate-180 w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px]" />
+          }
+          previousControlIcon={
+            <NextArrow className="cursor-pointer w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px] " />
+          }
         >
           {slides.map((item, index) => (
-            <Carousel.Slide>
-              <img
-                key={index}
-                src={item.content}
-                className="w-screen h-[144px] tablet:h-[347px] laptop:h-[576px] desktop:h-[720px]"
-              />
+            <Carousel.Slide key={index} className="relative">
+              <div className="flex">
+                <Image
+                  key={index}
+                  src={item.content}
+                  alt="Slide"
+                  width={400}
+                  height={720}
+                  className="w-screen object-cover h-[70vh] tablet:h-[347px] laptop:h-[576px] desktop:h-[720px] "
+                />
+                <div className="w-screen absolute top-[80%] tablet:top-[60%]">
+                  <div className="container relative">
+                    <Link
+                      href={item.link}
+                      key={item.id}
+                      className="ml-[40px] w-[41px] h-[41px] bg-[#5F5F5F66] flex justify-center items-center rounded-full  tablet:w-[54px] tablet:h-[54px] laptop:w-[90px] laptop:h-[90px] desktop:w-[112px] desktop:h-[112px]"
+                    >
+                      <Image
+                        src={ArrowUp}
+                        alt="Click link"
+                        className="w-[17px] h-[17px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px]"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </Carousel.Slide>
           ))}
         </Carousel>
-        {slides.map((item, index) => (
-          <Link href={item.link} target="_blank" key={item.id}>
-            <button key={index} className="absolute top-[60%] left-[15%] bg-[#5F5F5F66] w-[25px] h-[25px] flex justify-center items-center rounded-full tablet:w-[54px] tablet:h-[54px] laptop:w-[90px] laptop:h-[90px] desktop:w-[112px] desktop:h-[112px] ">
-              <Image
-                src={ArrowUp}
-                alt="arrow"
-                className="w-[11px] h-[11px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px]"
-              />
-            </button>
-          </Link>
-        ))}
       </div>
     </section>
   );
