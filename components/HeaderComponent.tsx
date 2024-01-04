@@ -116,11 +116,11 @@ const HeaderComponent = () => {
   return (
     <header
       className={classNames(
-        "fixed w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px] z-50",
+        "fixed w-full h-auto bg-primary tablet:h-[76px] laptop:h-[120px] desktop:h-[150px] z-50",
         isVisible == "default" ? "fixed" : "shadow-xl"
       )}
     >
-      <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[20px] ">
+      <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[15px] laptop:py-[24px] desktop:py-[30px]">
         {/* Menu and search */}
         <div className="flex-1">
           <div className="flex items-center gap-[20px] tablet:gap-[55px] laptop:gap-[85px] desktop:gap-[120px]">
@@ -150,7 +150,7 @@ const HeaderComponent = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 laptop:pr-[45px] desktop:pr-[70px]">
           <div className="flex items-end gap-[5px]">
             {/* Logo */}
             <Link

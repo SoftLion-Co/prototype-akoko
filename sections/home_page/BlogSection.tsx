@@ -15,9 +15,7 @@ const BlogSection = (props: Props) => {
         href="/blog"
         className="flex flex-col gap-5 text-center laptop:gap-[32px] desktop:gap-10"
       >
-        <h2 className="text-20 font-medium tablet:text-28 laptop:text-40 desktop:text-50">
-          {t("blog")}
-        </h2>
+        <h1>{t("blog")}</h1>
         <Image
           src={blog}
           alt="Blog"
@@ -30,9 +28,7 @@ const BlogSection = (props: Props) => {
         href="/blog"
         className="flex flex-col gap-5 text-center laptop:gap-[32px] desktop:gap-10"
       >
-        <h2 className="text-20 font-medium tablet:text-28 laptop:text-40 desktop:text-50">
-          {t("instagram")}
-        </h2>
+        <h1>{t("instagram")}</h1>
         <Image
           src={instagram}
           alt="Instagram"
