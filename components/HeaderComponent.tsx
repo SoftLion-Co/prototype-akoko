@@ -76,7 +76,6 @@ const HeaderComponent = () => {
 
   const handleClickLanguage = () => {
     setLanguage(!isLanguage);
-    // setModal(false);
     document.body.classList.remove("overflow-hidden");
   };
 
@@ -117,11 +116,11 @@ const HeaderComponent = () => {
   return (
     <header
       className={classNames(
-        "fixed w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px] z-50",
+        "fixed w-full h-auto bg-primary tablet:h-[76px] laptop:h-[120px] desktop:h-[150px] z-50",
         isVisible == "default" ? "fixed" : "shadow-xl"
       )}
     >
-      <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[20px] ">
+      <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[15px] laptop:py-[24px] desktop:py-[30px]">
         {/* Menu and search */}
         <div className="flex-1">
           <div className="flex items-center gap-[20px] tablet:gap-[55px] laptop:gap-[85px] desktop:gap-[120px]">
@@ -151,7 +150,7 @@ const HeaderComponent = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 laptop:pr-[45px] desktop:pr-[70px]">
           <div className="flex items-end gap-[5px]">
             {/* Logo */}
             <Link
@@ -252,11 +251,11 @@ const HeaderComponent = () => {
             "block w-screen h-[50px] px-[12px] pb-[9px] pt-[12px] tablet:hidden"
           )}
         >
-          <div className="w-full h-full border rounded-[25px] flex px-[12px]">
+          <div className="w-full h-full border-b flex px-[12px]">
             <input
               type="text"
               placeholder={t("search")}
-              className="grow h-full w-[55%] rounded-[25px] outline-none pl-[5px]"
+              className="grow h-full w-[55%]  outline-none pl-[5px]"
               value={searchValue}
               onChange={handleSearchChange}
             />
@@ -284,7 +283,7 @@ const HeaderComponent = () => {
             transition={{ duration: 0.3 }}
             className={classNames(
               "open",
-              "absolute top-[99%] bg-transparent h-screen w-full"
+              "absolute top-[98%] bg-transparent h-screen w-full"
             )}
           >
             <div className="bg-primary w-full h-auto shadow-xl pt-[10px] pb-[40px]">
