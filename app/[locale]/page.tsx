@@ -1,6 +1,7 @@
+import HeroSection from "@/sections/home_page/HeroSection";
 import BlogSection from "@/sections/home_page/BlogSection";
 import CollectionSlider from "@/sections/home_page/CollectionSlider/CollectionSlider";
-import { StyleSection } from "@/sections/home_page/StyleSection";
+import StyleSection from "@/sections/home_page/StyleSection";
 
 interface ProductCardData {
   arrayColection?: {
@@ -91,6 +92,7 @@ const testProducts: ProductCardData[] = [
 export default function Home() {
   return (
     <>
+      <HeroSection />
       <CollectionSlider />
       <StyleSection />
       <BlogSection />

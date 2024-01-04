@@ -36,7 +36,7 @@ const cartItem: CartProps[] = [
   },
 ];
 
-export const StyleSection = () => {
+const StyleSection = () => {
   const t = useTranslations("home");
   return (
     <section className="w-full h-auto">
@@ -76,3 +76,5 @@ export const StyleSection = () => {
     </section>
   );
 };
+
+export default StyleSection;
