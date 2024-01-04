@@ -18,5 +18,8 @@
       "blog": "Blog",
       "instagram": "Instagram"
     }
+  },
+  "components": {
+    "home": "Home"
   }
 }

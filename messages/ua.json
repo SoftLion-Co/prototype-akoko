@@ -18,5 +18,8 @@
       "blog": "Блог",
       "instagram": "Instagram"
     }
+  },
+  "components": {
+    "home": "Головна"
   }
 }
