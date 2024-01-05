@@ -17,6 +17,9 @@
     "blog-section": {
       "blog": "Блог",
       "instagram": "Instagram"
+    },
+    "other-style-section": {
+      "title": "Інші стилі"
     }
   }
 }
