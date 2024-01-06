@@ -14,15 +14,25 @@ const StyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
   return (
     <div className="tablet:hidden">
       <Carousel
-        slideSize="91%"
-        slideGap={"sm"}
+        slideGap="sm"
         loop
         withControls={false}
         withIndicators
-        align="center"
         slidesToScroll={1}
         className="mb-[10%] text-[2vw]"
         styles={{
+          slide: {
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            paddingRight: "10px",
+            "&:first-of-type": {
+              paddingLeft: "5px",
+            },
+            "&:last-of-type": {
+              paddingRight: "5px",
+            },
+          },
           indicators: {
             fontSize: "1em",
             alignItems: "center",
