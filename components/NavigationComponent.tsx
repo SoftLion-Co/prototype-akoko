@@ -50,8 +50,8 @@ const NavigationComponent = ({ links }: NavigationComponentProps) => {
 
   return (
     <div className="container flex gap-2.5 text-sm tablet:text-lg items-center">
-      <button className="rotate-90 mr-9" onClick={handleImageClick}>
-        <Image src={vector} alt="<" className="h-5 w-9" />
+      <button className="rotate-180 mr-9" onClick={handleImageClick}>
+        <Image src={vector} alt="<" className="h-5 w-9 text-black" />
       </button>
       {items.map((item, index) => (
         <Fragment key={index}>

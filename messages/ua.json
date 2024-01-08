@@ -18,5 +18,14 @@
       "blog": "Блог",
       "instagram": "Instagram"
     }
+  },
+  "cart-page": {
+    "breadcrums": {
+      "card-items": "Картка з товаром",
+      "cart": "Кошик"
+    }
+  },
+  "components": {
+    "home": "Головна"
   }
 }
