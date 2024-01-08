@@ -18,5 +18,14 @@
       "blog": "Blog",
       "instagram": "Instagram"
     }
+  },
+  "cart-page": {
+    "breadcrums": {
+      "card-items": "Product card",
+      "cart": "Cart"
+    }
+  },
+  "components": {
+    "home": "Home"
   }
 }
