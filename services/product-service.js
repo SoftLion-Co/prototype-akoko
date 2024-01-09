@@ -4,7 +4,6 @@ import shopifyService from "./server";
 
 class ProductService {
 
-	
 	async fetchProducts(limit = 30) {
 		try {
 		  const products = await shopifyService.shopify.product.list({ limit });
