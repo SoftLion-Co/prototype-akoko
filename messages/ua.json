@@ -18,5 +18,10 @@
       "blog": "Блог",
       "instagram": "Instagram"
     }
+  },
+  "style": {
+    "other-style-section": {
+      "title": "Інші стилі"
+    }
   }
 }

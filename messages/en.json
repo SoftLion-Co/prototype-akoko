@@ -18,5 +18,10 @@
       "blog": "Blog",
       "instagram": "Instagram"
     }
+  },
+  "style": {
+    "other-style-section": {
+      "title": "Other styles"
+    }
   }
 }

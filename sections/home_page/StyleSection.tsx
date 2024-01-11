@@ -4,7 +4,7 @@ import { Link } from "@/navigation";
 import Arrow from "@/images/icons/vector.svg";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import StyleSliderComponent from "@/components/StyleSliderComponent";
+import MobileStyleSliderComponent from "@/components/MobileStyleSliderComponent";
 import StyleCardComponent from "@/components/StyleCardComponent";
 
 type CartProps = {
@@ -54,7 +54,7 @@ const StyleSection = () => {
           ))}
         </div>
         {/* Mobile slider for cart */}
-        <StyleSliderComponent cartItem={cartItem} />
+        <MobileStyleSliderComponent cartItem={cartItem} />
 
         {/* Button */}
         <Link
