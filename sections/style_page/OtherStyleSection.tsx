@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
-import DesktopOtherStyleSliderComponent from "@/components/cart_page/DesktopOtherStyleSliderComponent";
-import MobileOtherStyleSliderComponent from "@/components/cart_page/MobileOtherStyleSliderComponent";
+import DesktopOtherStyleSliderComponent from "@/components/style_page/DesktopOtherStyleSliderComponent";
+import MobileOtherStyleSliderComponent from "@/components/style_page/MobileOtherStyleSliderComponent";
 
 type CardProps = {
   title: string;
@@ -63,7 +63,7 @@ const cardItem: CardProps[] = [
 ];
 
 const OtherStyleSection = () => {
-  const t = useTranslations("home");
+  const t = useTranslations("style");
 
   return (
     <section className="w-full h-auto  ">

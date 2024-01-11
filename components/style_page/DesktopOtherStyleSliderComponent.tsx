@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "@mantine/carousel";
 import Arrow from "@/images/icons/vector.svg";
 import Image from "next/image";
-import StyleCardComponent from "./../StyleCardComponent";
+import StyleCardComponent from "../StyleCardComponent";
 type CardProps = {
   title: string;
   image: string;

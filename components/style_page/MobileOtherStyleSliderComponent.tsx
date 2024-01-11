@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "@mantine/carousel";
 import Arrow from "@/images/icons/vector.svg";
 import Image from "next/image";
-import StyleCardComponent from "./../StyleCardComponent";
+import StyleCardComponent from "../StyleCardComponent";
 
 type CardProps = {
   title: string;
@@ -24,7 +24,7 @@ const MobileOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
         slidesToScroll={1}
         withIndicators
         withControls = {false}
-        className="mb-[20%]"
+        className="mb-[20%] text-[2vw]"
         styles={{
           indicators: {
             fontSize: "1em",
