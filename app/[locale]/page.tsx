@@ -1,7 +1,6 @@
-import OtherStyleSection from "@/sections/cart_page/OtherStyleSection";
 import BlogSection from "@/sections/home_page/BlogSection";
 import CollectionSlider from "@/sections/home_page/CollectionSlider/CollectionSlider";
-import { StyleSection } from "@/sections/home_page/StyleSection";
+import StyleSection from "@/sections/home_page/StyleSection";
 
 interface ProductCardData {
   arrayColection?: {
@@ -95,7 +94,6 @@ export default function Home() {
       <CollectionSlider />
       <StyleSection />
       <BlogSection />
-      <OtherStyleSection />
     </>
   );
 }

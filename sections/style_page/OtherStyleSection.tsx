@@ -30,6 +30,36 @@ const cardItem: CardProps[] = [
     image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
     link: "/style",
   },
+  {
+    title: "Стиль 3",
+    image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
+    link: "/style",
+  },
+  {
+    title: "Стиль 4",
+    image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
+    link: "/style",
+  },
+  {
+    title: "Стиль 3",
+    image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
+    link: "/style",
+  },
+  {
+    title: "Стиль 4",
+    image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
+    link: "/style",
+  },
+  {
+    title: "Стиль 3",
+    image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
+    link: "/style",
+  },
+  {
+    title: "Стиль 4",
+    image: "https://content.rozetka.com.ua/goods/images/big/300703138.jpg",
+    link: "/style",
+  },
 ];
 
 const OtherStyleSection = () => {
@@ -40,7 +70,7 @@ const OtherStyleSection = () => {
       <div className="container flex flex-col gap-[34px] tablet:gap-[56px] laptop:gap-[89px] desktop:gap-[120px]">
         <h1 className="text-center">{t("other-style-section.title")}</h1>
         <div className="flex">
-          <MobileOtherStyleSliderComponent cardItem={cardItem}/>
+          <MobileOtherStyleSliderComponent cardItem={cardItem} />
           <DesktopOtherStyleSliderComponent cardItem={cardItem} />
         </div>
       </div>
