@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import "./globals.css";
 import type { Metadata } from "next";
 import HeaderComponent from "@/components/HeaderComponent";
-
 import FooterComponent from "@/components/FooterComponent";
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <HeaderComponent />
-          <main className="mt-[100px] laptop:mt-[110px] desktop:mt-[150px]">
+          <main className="flex flex-col gap-[75px] mt-[100px] tablet:gap-[120px] laptop:gap-[150px] laptop:mt-[110px] desktop:mt-[150px]">
             {children}
           </main>
           <FooterComponent />

@@ -7,6 +7,21 @@
     }
   },
   "home": {
-    "lox": "лох"
+    "new-collection": {
+      "title": "Нова колекція"
+    },
+    "style-section": {
+      "title": "Оберіть ваш стиль",
+      "button": "Більше стилів"
+    },
+    "blog-section": {
+      "blog": "Блог",
+      "instagram": "Instagram"
+    }
+  },
+  "style": {
+    "other-style-section": {
+      "title": "Інші стилі"
+    }
   }
 }

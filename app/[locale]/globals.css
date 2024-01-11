@@ -37,15 +37,15 @@ p {
 }
 
 h1 {
-  @apply text-20 text-black font-600 desktop:text-50 laptop:text-40 tablet:text-25;
+  @apply text-20 text-black font-500 tracking-1.1 tablet:text-25 tablet:tracking-1.375 laptop:text-40 laptop:tracking-2.2 desktop:text-50 desktop:tracking-2.75;
 }
 
 h2 {
-  @apply text-16 text-black font-600 desktop:text-40 laptop:text-36 tablet:text-22;
+  @apply text-16 text-black font-500 tracking-0.965 tablet:text-20 laptop:text-35 laptop:tracking-1.75 desktop:text-40 desktop:tracking-2;
 }
 
 p {
-  @apply text-14 text-black font-400 desktop:text-20 laptop:text-16;
+  @apply text-14 text-black font-400 tracking-0.662  laptop:text-16 desktop:tracking-0.8 desktop:text-20;
 }
 
 ul,

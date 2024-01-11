@@ -7,6 +7,21 @@
     }
   },
   "home": {
-    "lox": "lox"
+    "new-collection": {
+      "title": "New Collection"
+    },
+    "style-section": {
+      "title": "Choose your style",
+      "button": "More styles"
+    },
+    "blog-section": {
+      "blog": "Blog",
+      "instagram": "Instagram"
+    }
+  },
+  "style": {
+    "other-style-section": {
+      "title": "Other styles"
+    }
   }
 }
