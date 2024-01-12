@@ -1,28 +1,25 @@
-const express = require("express");
-const app = express();
-const ShopifyService = require("./shopifyService");
+import { baseUrl } from './apiConfig';
 
 class CustomerService {
-  async listCustomers(limit = 5) {
+  async listCustomers() {
     try {
-      const customers = await ShopifyService.shopify.customer.list({ limit });
-      return customers;
+      const response = await fetch(`${baseUrl}/customers`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching customers:', error);
       throw error;
     }
   }
 
-  async getCustomerById(userId) {
+  async getCustomerById(customerId) {
     try {
-      const user = await ShopifyService.shopify.customer.get(userId);
-      return user;
+      const response = await fetch(`${baseUrl}/customer/${customerId}`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error(`Error fetching customer with ID ${customerId}:`, error);
       throw error;
     }
   }
-
 }
 
 export default new CustomerService();

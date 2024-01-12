@@ -1,24 +1,22 @@
-const express = require("express");
-const app = express();
-const ShopifyService = require("./shopifyService");
+import { baseUrl } from './apiConfig';
 
 class BlogService {
   async listBlogs() {
     try {
-      const blogs = await ShopifyService.shopify.blog.list();
-      return blogs;
+      const response = await fetch(`${baseUrl}/blogs`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching blogs:', error);
       throw error;
     }
   }
 
   async getBlogById(blogId) {
     try {
-      const blog = await ShopifyService.shopify.blog.get(blogId);
-      return blog;
+      const response = await fetch(`${baseUrl}/blog/${blogId}`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error(`Error fetching blog with ID ${blogId}:`, error);
       throw error;
     }
   }

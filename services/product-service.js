@@ -1,42 +1,25 @@
-const express = require("express");
-const app = express();
-import shopifyService from "./server";
+import { baseUrl } from './apiConfig';
 
 class ProductService {
+  async listProducts() {
+    try {
+      const response = await fetch(`${baseUrl}/products`);
+      return response.json();
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      throw error;
+    }
+  }
 
-	async fetchProducts(limit = 30) {
-		try {
-		  const products = await shopifyService.shopify.product.list({ limit });
-		  return products;
-		} catch (error) {
-		  console.error(error);
-		  throw error;
-		}
-	}
-
-	async getProductWithMetafields(productId) {
-		try {
-		  const product = await shopifyService.shopify.product.get(productId);
-  
-		  const metafields = await shopifyService.shopify.metafield.list({
-			 metafield: { owner_resource: "product", owner_id: productId },
-		  });
-  
-		  const productWithMetafields = {
-			 product,
-			 metafields,
-		  };
-		  console.log(productWithMetafields);
-		  return productWithMetafields;
-		} catch (error) {
-		  console.error(error);
-		  throw error;
-		}
-	 }
-  
+  async getProductById(productId) {
+    try {
+      const response = await fetch(`${baseUrl}/product/${productId}`);
+      return response.json();
+    } catch (error) {
+      console.error(`Error fetching product with ID ${productId}:`, error);
+      throw error;
+    }
+  }
 }
 
 export default new ProductService();
-
- 
- 

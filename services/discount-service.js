@@ -1,24 +1,22 @@
-const express = require("express");
-const app = express();
-const ShopifyService = require("./shopifyService");
+import { baseUrl } from './apiConfig';
 
 class DiscountService {
-  async listDiscounts(limit = 5) {
+  async listDiscounts() {
     try {
-      const discounts = await ShopifyService.shopify.discount.list({ limit });
-      return discounts;
+      const response = await fetch(`${baseUrl}/discounts`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching discounts:', error);
       throw error;
     }
   }
 
   async getDiscountById(discountId) {
     try {
-      const discount = await ShopifyService.shopify.discount.get(discountId);
-      return discount;
+      const response = await fetch(`${baseUrl}/discount/${discountId}`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error(`Error fetching discount with ID ${discountId}:`, error);
       throw error;
     }
   }

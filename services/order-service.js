@@ -1,24 +1,56 @@
-const express = require("express");
-const app = express();
-const ShopifyService = require("./shopifyService");
+import { baseUrl } from './apiConfig';
 
 class OrderService {
-  async listOrders(limit = 5) {
+  async listOrders() {
     try {
-      const orders = await ShopifyService.shopify.order.list({ limit });
-      return orders;
+      const response = await fetch(`${baseUrl}/orders`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching orders:', error);
       throw error;
     }
   }
 
   async getOrderById(orderId) {
     try {
-      const order = await ShopifyService.shopify.order.get(orderId);
-      return order;
+      const response = await fetch(`${baseUrl}/order/${orderId}`);
+      return response.json();
     } catch (error) {
-      console.error(error);
+      console.error(`Error fetching order with ID ${orderId}:`, error);
+      throw error;
+    }
+  }
+
+  async createOrder(orderData) {
+    try {
+      const response = await fetch(`${baseUrl}/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      return response.json();
+    } catch (error) {
+      console.error('Error creating order:', error);
+      throw error;
+    }
+  }
+
+  async updateOrder(orderId, updatedOrderData) {
+    try {
+      const response = await fetch(`${baseUrl}/order/${orderId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedOrderData),
+      });
+
+      return response.json();
+    } catch (error) {
+      console.error(`Error updating order with ID ${orderId}:`, error);
       throw error;
     }
   }
