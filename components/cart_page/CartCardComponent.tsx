@@ -71,32 +71,40 @@ const CartCardComponent: React.FC<CardProps> = ({
       <Image
         src={img}
         alt={name}
-        className="object-cover bg-blue h-[240px] min-w-[150px] w-[220px] tablet-[230px] laptop:w-[240px] tablet:w-[280px]"
+        className="object-cover bg-blue h-[240px] min-w-[150px] w-[220px] tablet:w-[220px] laptop:w-[240px]"
       />
       <div className="flex flex-col gap-[15px] tablet:gap-[20px] desktop:gap-[25px]">
         {/* Information about product */}
         <div className="flex flex-col gap-[10px]">
           {/* Name and Price product */}
-          <div className="flex flex-col gap-[10px] tablet:w-max tablet:flex-row tablet:gap-[70px] laptop:gap-[135px] desktop:gap-[165px]">
+          <div className="flex flex-col gap-[10px] tablet:w-max laptop:flex-row laptop:gap-[135px] desktop:gap-[165px]">
             <p className="font-600 text-[22px] tracking-0.885 tablet:text-[28px] tablet:tracking-1.148 laptop:text-[30px] desktop:text-[35px] desktop:tracking-1.4 ">
               {name}
             </p>
-            <p className="font-500 tablet:mt-[15px]">
-              Price: {price}
-            </p>
+            <p className="font-500 laptop:mt-[15px]">Price: {price}</p>
           </div>
 
           {/* Color */}
-          <div className="flex justify-start gap-[10px] tablet:items-center tablet:gap-[15px] laptop:gap-[20px]">
+          <div className="flex justify-start gap-[10px] laptop:items-center tablet:gap-[15px] laptop:gap-[20px]">
             <p>Color:</p>
-            <div className="flex flex-col gap-[6px] tablet:items-center tablet:gap-[10px] tablet:flex-row laptop:gap-[15px]">
+            <div
+              className={classNames(
+                colors.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
+                "flex flex-col gap-[6px] tablet:items-center tablet:gap-[10px] laptop:flex-row laptop:gap-[15px]"
+              )}
+            >
               <div
                 className="border border-[#CECECE] rounded-full w-[25px] h-[25px] tablet:w-[33px] tablet:h-[32px] laptop:w-[34px] laptop:h-[34px] desktop:w-[41px] desktop:h-[40px]"
                 style={{ background: isColor }}
                 onClick={handleOpenSelectColor}
               ></div>
               {clickColor && (
-                <div className="flex flex-col gap-[3px] tablet:flex-row tablet:gap-[10px] laptop:gap-[15px]">
+                <div
+                  className={classNames(
+                    colors.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
+                    "flex flex-col gap-[3px] laptop:flex-row tablet:gap-[10px] laptop:gap-[15px]"
+                  )}
+                >
                   {colors
                     .filter((item) => item !== isColor)
                     .map((item, index) => (
@@ -115,9 +123,18 @@ const CartCardComponent: React.FC<CardProps> = ({
           </div>
 
           {/* Size */}
-          <div className="flex justify-start gap-[18px] tablet:items-center tablet:gap-[22px] laptop:gap-[29px] desktop:gap-[32px]">
+          <div
+            className={
+              "flex justify-start gap-[18px] tablet:gap-[22px] laptop:items-center laptop:gap-[29px] desktop:gap-[32px]"
+            }
+          >
             <p>Size:</p>
-            <div className="flex flex-col gap-[6px] tablet:items-center tablet:flex-row laptop:gap-[10px]">
+            <div
+              className={classNames(
+                sizes.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
+                "flex flex-col gap-[6px] laptop:items-center laptop:flex-row laptop:gap-[10px]"
+              )}
+            >
               <p
                 className="rounded-full flex justify-center items-center text-primary font-500 text-[12px] bg-black w-[25px] h-[25px] tablet:w-[33px] tablet:h-[32px] tablet:text-[16px] laptop:text-[18px] laptop:w-[34px] laptop:h-[34px] desktop:text-[20px] desktop:w-[41px] desktop:h-[40px]"
                 onClick={handleOpenSelectSize}
@@ -125,7 +142,12 @@ const CartCardComponent: React.FC<CardProps> = ({
                 {isSize}
               </p>
               {clickSize && (
-                <div className="flex flex-col gap-[3px] tablet:flex-row laptop:gap-[10px]">
+                <div
+                  className={classNames(
+                    sizes.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
+                    "flex gap-[3px] laptop:flex-row laptop:gap-[10px]"
+                  )}
+                >
                   {sizes
                     .filter((item) => item !== isSize)
                     .map((item, index) => (

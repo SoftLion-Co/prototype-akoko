@@ -29,7 +29,7 @@ const CartSection: React.FC<CartProps> = ({ products }) => {
   return (
     <div
       className="w-full tablet:w-[70%] tablet:h-auto tablet:mb-[100px]"
-      id="cart-information"
+      id="information"
     >
       <div className="flex flex-col gap-[40px] h-full  w-full tablet:relative tablet:gap-[70px] laptop:gap-[90px] desktop:gap-[130px]">
         {products.map((product, index) => (
