@@ -8,17 +8,19 @@ type CartProps = {
   link: string;
 };
 
-const StyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
+const MobileStyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
   cartItem,
 }) => {
   return (
     <div className="tablet:hidden">
       <Carousel
-        slideGap="sm"
+        slideSize="50%"
+        slideGap={"sm"}
         loop
         withControls={false}
         withIndicators
-        slidesToScroll={1}
+        align="start"
+        slidesToScroll={2}
         className="mb-[10%] text-[2vw]"
         styles={{
           slide: {
@@ -64,4 +66,4 @@ const StyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
   );
 };
 
-export default StyleSliderComponent;
+export default MobileStyleSliderComponent;
