@@ -46,5 +46,10 @@
   },
   "components": {
     "home": "Головна"
+  },
+  "style": {
+    "other-style-section": {
+      "title": "Інші стилі"
+    }
   }
 }
