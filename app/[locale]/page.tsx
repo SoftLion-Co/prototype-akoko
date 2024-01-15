@@ -96,6 +96,7 @@ export default function Home() {
       <CollectionSlider />
       <StyleSection />
       <BlogSection />
+
     </>
   );
 }
