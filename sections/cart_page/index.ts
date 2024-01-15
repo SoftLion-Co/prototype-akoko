@@ -13,7 +13,7 @@ export default interface CartProps {
 
 export const data = [
   {
-    img: "",
+    img: "https://content.rozetka.com.ua/goods/images/big/348968783.jpg",
     name: "FFF",
     selectColor: "grey",
     colors: ["grey", "black", "green"],
@@ -64,9 +64,3 @@ export const data = [
   },
 ];
 
-export const sidebarLinks = [
-  { href: "#information", title: "Кошик" },
-  { href: "#f", title: "Контактна інформація" },
-  { href: "#f", title: "Доставка" },
-  { href: "#f", title: "Оплата" },
-];

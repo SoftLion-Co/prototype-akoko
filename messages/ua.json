@@ -23,6 +23,25 @@
     "breadcrums": {
       "card-items": "Картка з товаром",
       "cart": "Кошик"
+    },
+    "cart-section": {
+      "card": {
+        "price": "Ціна",
+        "color": "Колір",
+        "size": "Розмір"
+      },
+      "input": {
+        "title": "Введіть промокод",
+        "placeholder": "Промокод"
+      },
+      "discount": "Знижка",
+      "total-price": "Загальна сума",
+      "sidebar": {
+        "products": "Кошик",
+        "contact-information": "Контактна інформація",
+        "delivery": "Доставка",
+        "payment": "Оплата"
+      }
     }
   },
   "components": {

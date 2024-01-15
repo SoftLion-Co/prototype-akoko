@@ -23,6 +23,25 @@
     "breadcrums": {
       "card-items": "Product card",
       "cart": "Cart"
+    },
+    "cart-section": {
+      "card": {
+        "price": "Price",
+        "color": "Colors",
+        "size": "Sizes"
+      },
+      "input": {
+        "title": "Input promo code",
+        "placeholder": "Promo code"
+      },
+      "discount": "Discount",
+      "total-price": "Total price",
+      "sidebar": {
+        "products": "Cart",
+        "contact-information": "Contact information",
+        "delivery": "Delivery",
+        "payment": "Payment"
+      }
     }
   },
   "components": {

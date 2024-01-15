@@ -82,7 +82,7 @@ const HeaderComponent = () => {
   useEffect(() => {
     const handleScroll = () => {
       const { scrollY } = window;
-      if (scrollY < 20) {
+      if (scrollY < 40) {
         setIsVisible("default");
       } else if (scrollY > prevScroll.current) {
         setIsVisible("down");
@@ -116,8 +116,12 @@ const HeaderComponent = () => {
   return (
     <header
       className={classNames(
-        "fixed w-full h-auto bg-primary tablet:h-[76px] laptop:h-[120px] desktop:h-[150px] z-50",
-        isVisible == "default" ? "fixed" : "shadow-xl"
+        "fixed w-full h-auto bg-primary tablet:h-[76px] laptop:h-[120px] desktop:h-[150px] z-50 transition-transform",
+        isVisible == "down"
+          ? "fixed desktop:translate-y-[-150px]"
+          : isVisible !== "default"
+          ? "shadow-xl"
+          : null
       )}
     >
       <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[15px] laptop:py-[24px] desktop:py-[30px]">

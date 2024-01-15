@@ -1,17 +1,26 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavigationComponent from "@/components/NavigationComponent";
 import { useTranslations } from "next-intl";
-import DesktopCartSection from "./cart-section/CartSection";
-import { data, sidebarLinks } from "./index";
+import CartSection from "./cart-section/CartSection";
+import { data } from "./index";
 import { Link } from "@/navigation";
 import { usePathname } from "next/navigation";
+import SidebarLinksComponent from "@/components/cart_page/SidebarLinksComponent";
 
 const CartPage = () => {
   const t = useTranslations("cart-page");
-  const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState("#cart-products");
 
-  console.log(pathname);
+  const sidebarLinks = [
+    { href: "#cart-products", title: `${t("cart-section.sidebar.products")}` },
+    {
+      href: "#contact-information",
+      title: `${t("cart-section.sidebar.contact-information")}`,
+    },
+    { href: "#delivery", title: `${t("cart-section.sidebar.delivery")}` },
+    { href: "#payment", title: `${t("cart-section.sidebar.payment")}` },
+  ];
 
   return (
     <section className="mt-[120px] flex flex-col gap-[50px] tablet:gap-[150px] laptop:gap-[200px]">
@@ -22,21 +31,12 @@ const CartPage = () => {
         ]}
       />
       <div className="container scroll-smooth flex mb-[50px] tablet:justify-between tablet:mb-[100px] laptop:mb-[150px] desktop:mb-[200px]">
-        <DesktopCartSection products={data} />
-        <aside className="hidden tablet:w-auto tablet:h-min tablet:sticky tablet:top-[100px] tablet:block w-[200px] h-[200px] laptop:top-[170px] desktop:top-[200px]">
-          <ul className="flex flex-col tablet:gap-[28px] laptop:gap-[35px] desktop:gap-[40px] w-max">
-            {sidebarLinks.map((link, index) => (
-              <li key={index}>
-                <Link
-                  href={link.href}
-                  className=" font-400 tablet:text-[18px] tablet:tracking-[0.735px] laptop:text-[20px] laptop:tracking-[0.887px] desktop:text-[25px] desktop:tracking-[1px]"
-                >
-                  {link.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
+        <CartSection products={data} />
+        <SidebarLinksComponent
+          links={sidebarLinks}
+          activeLink={activeLink}
+          setActiveLink={setActiveLink}
+        />
       </div>
     </section>
   );

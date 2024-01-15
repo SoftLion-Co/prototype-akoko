@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Basket from "@/images/icons/basket.svg";
 import classNames from "classnames";
 import { LuTrash2 } from "react-icons/lu";
 
@@ -14,6 +13,11 @@ interface CardProps {
   sizes: string[];
   count: number;
   price: number;
+  translation: {
+    price: string;
+    color: string;
+    size: string;
+  };
 }
 
 const CartCardComponent: React.FC<CardProps> = ({
@@ -25,6 +29,7 @@ const CartCardComponent: React.FC<CardProps> = ({
   sizes,
   count,
   price,
+  translation,
 }) => {
   const [clickColor, setClickColor] = useState(false);
   const [clickSize, setClickSize] = useState(false);
@@ -71,6 +76,8 @@ const CartCardComponent: React.FC<CardProps> = ({
       <Image
         src={img}
         alt={name}
+        width={320}
+        height={420}
         className="object-cover bg-blue h-[240px] min-w-[150px] w-[220px] tablet:w-[220px] laptop:w-[240px]"
       />
       <div className="flex flex-col gap-[15px] tablet:gap-[20px] desktop:gap-[25px]">
@@ -81,16 +88,18 @@ const CartCardComponent: React.FC<CardProps> = ({
             <p className="font-600 text-[22px] tracking-0.885 tablet:text-[28px] tablet:tracking-1.148 laptop:text-[30px] desktop:text-[35px] desktop:tracking-1.4 ">
               {name}
             </p>
-            <p className="font-500 laptop:mt-[15px]">Price: {price}</p>
+            <p className="font-500 laptop:mt-[15px]">
+              {translation.price}: {price}
+            </p>
           </div>
 
           {/* Color */}
           <div className="flex justify-start gap-[10px] laptop:items-center tablet:gap-[15px] laptop:gap-[20px]">
-            <p>Color:</p>
+            <p>{translation.color}:</p>
             <div
               className={classNames(
                 colors.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
-                "flex flex-col gap-[6px] tablet:items-center tablet:gap-[10px] laptop:flex-row laptop:gap-[15px]"
+                "cursor-pointer flex flex-col gap-[6px] tablet:items-center tablet:gap-[10px] laptop:flex-row laptop:gap-[15px]"
               )}
             >
               <div
@@ -102,7 +111,7 @@ const CartCardComponent: React.FC<CardProps> = ({
                 <div
                   className={classNames(
                     colors.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
-                    "flex flex-col gap-[3px] laptop:flex-row tablet:gap-[10px] laptop:gap-[15px]"
+                    "cursor-pointer flex flex-col gap-[3px] laptop:flex-row tablet:gap-[10px] laptop:gap-[15px]"
                   )}
                 >
                   {colors
@@ -128,11 +137,11 @@ const CartCardComponent: React.FC<CardProps> = ({
               "flex justify-start gap-[18px] tablet:gap-[22px] laptop:items-center laptop:gap-[29px] desktop:gap-[32px]"
             }
           >
-            <p>Size:</p>
+            <p>{translation.size}:</p>
             <div
               className={classNames(
                 sizes.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
-                "flex flex-col gap-[6px] laptop:items-center laptop:flex-row laptop:gap-[10px]"
+                "cursor-pointer flex flex-col gap-[6px] laptop:items-center laptop:flex-row laptop:gap-[10px]"
               )}
             >
               <p
@@ -144,8 +153,8 @@ const CartCardComponent: React.FC<CardProps> = ({
               {clickSize && (
                 <div
                   className={classNames(
-                    sizes.length > 3 ? "tablet:flex-col" : "tablet:flex-row",
-                    "flex gap-[3px] laptop:flex-row laptop:gap-[10px]"
+                    sizes.length > 2 ? "tablet:flex-col" : "tablet:flex-row",
+                    "cursor-pointer flex gap-[3px] flex-col laptop:flex-row laptop:gap-[10px]"
                   )}
                 >
                   {sizes

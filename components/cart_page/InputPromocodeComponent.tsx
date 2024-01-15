@@ -7,7 +7,7 @@ interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputPromoComponent: React.FC<InputProps> = ({
+const InputPromoCodeComponent: React.FC<InputProps> = ({
   className,
   placeholder,
   value,
@@ -25,4 +25,4 @@ const InputPromoComponent: React.FC<InputProps> = ({
   );
 };
 
-export default InputPromoComponent;
+export default InputPromoCodeComponent;
