@@ -53,7 +53,7 @@ const CartSection: React.FC<CartProps> = ({ products }) => {
         <div className="flex flex-col h-auto w-full gap-[20px]">
           <div className="flex flex-col gap-[10px]">
             <p className="font-500">{t("cart-section.input.title")}</p>
-            <div className="h-auto w-[62%] flex items-center py-[5px] border-b border-[#CECECE] pl-[18px] tablet:pl-[20px] tablet:gap-[5px] tablet:w-[46%] laptop:w-[30%] desktop:w-[28%] desktop:pl-[30px]">
+            <div className="h-auto w-[180px] flex items-center py-[5px] border-b border-[#CECECE] pl-[18px] tablet:pl-[20px] tablet:gap-[5px] tablet:w-[46%] laptop:w-[30%] desktop:w-[28%] desktop:pl-[30px]">
               <InputPromoCodeComponent
                 placeholder={t("cart-section.input.placeholder")}
                 className="outline-none text-[10px] tablet:text-[12px] laptop:text-[13px] desktop:text-[15px]"

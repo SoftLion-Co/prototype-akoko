@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import { LuTrash2 } from "react-icons/lu";
+import { usePathname } from "next/navigation";
 
 interface CardProps {
   img: string;
@@ -36,6 +37,7 @@ const CartCardComponent: React.FC<CardProps> = ({
   const [counter, setCounter] = useState(count);
   const [isColor, setColor] = useState(selectColor);
   const [isSize, setSize] = useState(selectSize);
+  const pathname = usePathname();
 
   const handleAddCountClick = () => {
     setCounter((prev) => prev + 1);
@@ -72,7 +74,7 @@ const CartCardComponent: React.FC<CardProps> = ({
   };
 
   return (
-    <div className="flex gap-[30px] tablet:justify-start tablet:items-start tablet:gap-[30px] desktop:gap-[35px]">
+    <div className="flex justify-start gap-[30px] tablet:justify-start tablet:items-start tablet:gap-[30px] desktop:gap-[35px]">
       <Image
         src={img}
         alt={name}
@@ -94,7 +96,14 @@ const CartCardComponent: React.FC<CardProps> = ({
           </div>
 
           {/* Color */}
-          <div className="flex justify-start gap-[10px] laptop:items-center tablet:gap-[15px] laptop:gap-[20px]">
+          <div
+            className={classNames(
+              pathname.startsWith("/ua")
+                ? "gap-[14px] tablet:gap-[14px] laptop:gap-[15px] desktop:gap-[22px]"
+                : "gap-[5px] desktop:gap-[8px]",
+              "flex justify-start laptop:items-center"
+            )}
+          >
             <p>{translation.color}:</p>
             <div
               className={classNames(
@@ -133,9 +142,12 @@ const CartCardComponent: React.FC<CardProps> = ({
 
           {/* Size */}
           <div
-            className={
-              "flex justify-start gap-[18px] tablet:gap-[22px] laptop:items-center laptop:gap-[29px] desktop:gap-[32px]"
-            }
+            className={classNames(
+              pathname.startsWith("/ua")
+                ? "gap-[4px] desktop:gap-[10px]"
+                : "gap-[14px] tablet:gap-[14px] laptop:gap-[15px] desktop:gap-[20px]",
+              "flex justify-start laptop:items-center"
+            )}
           >
             <p>{translation.size}:</p>
             <div
