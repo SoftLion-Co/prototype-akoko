@@ -118,7 +118,7 @@ const HeaderComponent = () => {
       className={classNames(
         "fixed w-full h-auto bg-primary tablet:h-[76px] laptop:h-[120px] desktop:h-[150px] z-50 transition-transform",
         isVisible == "down"
-          ? "fixed desktop:translate-y-[-150px]"
+          ? "fixed tablet:translate-y-[-76px] laptop:translate-y-[-120px] desktop:translate-y-[-150px]"
           : isVisible !== "default"
           ? "shadow-xl"
           : null
