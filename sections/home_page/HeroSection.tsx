@@ -217,10 +217,10 @@ const HeroSection = () => {
             },
           }}
           nextControlIcon={
-            <PrevArrow className="cursor-pointer  rotate-180 w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px]" />
+            <NextArrow className="cursor-pointer w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px] " />
           }
           previousControlIcon={
-            <NextArrow className="cursor-pointer w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px] " />
+            <PrevArrow className="cursor-pointer  rotate-180 w-[16px] h-[16px] tablet:w-[23px] tablet:h-[23px] laptop:w-[38px] laptop:h-[38px] desktop:w-[48px] desktop:h-[48px]" />
           }
         >
           {slides.map((item, index) => (
