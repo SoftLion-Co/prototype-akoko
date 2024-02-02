@@ -26,6 +26,9 @@
     "style": {
     "other-style-section": {
       "title": "Other styles"
+    },
+    "add-image-section":{
+      "title": "Complete your images"
     }
   }
 }

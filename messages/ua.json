@@ -26,6 +26,9 @@
     "style": {
     "other-style-section": {
       "title": "Інші стилі"
+    },
+    "add-image-section":{
+      "title": "Доповни свої образи"
     }
   }
 }
