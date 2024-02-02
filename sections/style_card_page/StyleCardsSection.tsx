@@ -138,7 +138,7 @@ const StyleCardsSection = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage]);
 
-  const cardsPerRow = isMobile ? 2 : isTablet ? 3 : isDesktop ? 4 : 4;
+  const cardsPerRow = isMobile ? 2 : isTablet ? 4 : isDesktop ? 4 : 4;
   const cardsPerPage = cardsPerRow * 3;
   const startIndex = (currentPage - 1) * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
@@ -208,7 +208,7 @@ const StyleCardsSection = () => {
             ))
           )}
         </div>
-        <div className="flex flex-row flex-wrap justify-center gap-[42px] tablet:gap-[40px] laptop:gap-[40px] desktop:gap-[51px] ">
+        <div className="flex flex-row flex-wrap justify-center gap-[42px] tablet:justify-start tablet:gap-x-[19px] tablet:gap-y-[40px] laptop:gap-[62px] desktop:gap-[70px] ">
           {paginatedCardItems.map((card, index) => (
             <div key={index}>
               <StyleCardComponent
