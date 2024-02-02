@@ -22,7 +22,7 @@ const config: Config = {
       blue: "#5b749a",
       gray: "#707070",
     },
-    
+
     screens: {
       mobile: { max: "767.98px" },
       tablet: { min: "768px" },
@@ -57,6 +57,7 @@ const config: Config = {
       },
       fontSize: {
         "14": "14px",
+        "15": "15px",
         "16": "16px",
         "18": "18px",
         "20": "20px",
@@ -78,6 +79,8 @@ const config: Config = {
       "0.99": "0.99px",
       "1.1": "1.1px",
       "1.148": "1.148px",
+      "1.153": "1.153px",
+      "1.2": "1.2px",
       "1.21": "1.21px",
       "1.375": "1.375px",
       "1.4": "1.4px",

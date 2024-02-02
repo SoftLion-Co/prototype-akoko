@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "@/images/header/Akoko.svg";
 import User from "@/images/icons/user.svg";
 import Menu from "@/images/icons/burger-menu.svg";
-import Cart from "@/images/icons/cart.svg";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Heart from "@/images/icons/heart.svg";
 import Search from "@/images/icons/search.svg";
 import { IoIosArrowUp } from "react-icons/io";
@@ -70,7 +70,7 @@ const HeaderComponent = () => {
   };
 
   const handleClickSearch = () => {
-    console.log(searchValue);
+    searchValue.length != 0 ? console.log(searchValue) : null;
     setSearchValue("");
   };
 
@@ -144,7 +144,14 @@ const HeaderComponent = () => {
                 value={searchValue}
                 onChange={handleSearchChange}
               />
-              <div onClick={handleClickSearch}>
+              <div
+                onClick={handleClickSearch}
+                className={
+                  searchValue.length != 0
+                    ? "cursor-pointer"
+                    : "cursor-not-allowed"
+                }
+              >
                 <Image
                   src={Search}
                   alt="Search"
@@ -212,10 +219,10 @@ const HeaderComponent = () => {
           <div className="flex gap-[15px] tablet:gap-[40px] laptop:gap-[55px] desktop:gap-[70px]">
             <div className="flex gap-[5px] tablet:gap-[7px] desktop:gap-[10px]">
               <Link href="/cart">
-                <Image
-                  src={Cart}
-                  alt="Cart"
-                  className="min-w-[15px] min-h-[15px] w-[17px] h-[17px]  cursor-pointer tablet:w-[23px] tablet:h-[23px] laptop:w[32px] laptop:h-[32px] desktop:w-[37px] desktop:h-[37px]"
+                <HiOutlineShoppingBag
+                  className={classNames(
+                    "min-w-[15px] min-h-[15px] w-[17px] h-[17px]  cursor-pointer tablet:w-[23px] tablet:h-[23px] laptop:w[32px] laptop:h-[32px] desktop:w-[37px] desktop:h-[37px]"
+                  )}
                 />
               </Link>
               <Link href="/wishlist">

@@ -1,17 +1,9 @@
-export default interface CartProps {
-  products: {
-    img: string;
-    name: string;
-    colors: string[];
-    selectColor: string;
-    size: string[];
-    selectSize: string;
-    count: number;
-    price: number;
-  }[];
-}
+export type CartSectionProps = {
+  id: string;
+  ref: React.RefObject<HTMLElement>;
+};
 
-export const data = [
+export const products = [
   {
     img: "https://content.rozetka.com.ua/goods/images/big/348968783.jpg",
     name: "FFF",
@@ -63,4 +55,3 @@ export const data = [
     price: 1500,
   },
 ];
-

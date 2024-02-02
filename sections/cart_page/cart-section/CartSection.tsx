@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import CartCardComponent from "@/components/cart_page/CartCardComponent";
 import { IoIosArrowForward } from "react-icons/io";
 import InputPromoCodeComponent from "@/components/cart_page/InputPromoCodeComponent";
-import CartProps from "../index";
 import { useTranslations } from "next-intl";
+import { products } from "@/sections/cart_page/index";
 
-const CartSection: React.FC<CartProps> = ({ products }) => {
+const CartSection: React.FC = () => {
   const [promoCode, setPromoCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
   const t = useTranslations("cart-page");
@@ -29,7 +29,7 @@ const CartSection: React.FC<CartProps> = ({ products }) => {
   };
 
   return (
-    <div className="w-full tablet:w-[70%] tablet:h-auto tablet:mb-[100px]">
+    <>
       <div className="flex flex-col gap-[40px] h-full  w-full tablet:relative tablet:gap-[70px] laptop:gap-[90px] desktop:gap-[130px]">
         {products.map((product, index) => (
           <CartCardComponent
@@ -50,10 +50,10 @@ const CartSection: React.FC<CartProps> = ({ products }) => {
           />
         ))}
         {/* Total price promo */}
-        <div className="flex flex-col h-auto w-full gap-[20px]">
+        <div className="flex flex-col h-auto w-auto gap-[20px]">
           <div className="flex flex-col gap-[10px]">
             <p className="font-500">{t("cart-section.input.title")}</p>
-            <div className="h-auto w-[180px] flex items-center py-[5px] border-b border-[#CECECE] pl-[18px] tablet:pl-[20px] tablet:gap-[5px] tablet:w-[46%] laptop:w-[30%] desktop:w-[28%] desktop:pl-[30px]">
+            <div className="h-auto w-[180px] flex items-center py-[5px] border-b border-[#CECECE] pl-[18px] tablet:pl-[20px] tablet:gap-[5px] tablet:w-[65%] laptop:w-[37%] desktop:w-[35%] desktop:pl-[30px]">
               <InputPromoCodeComponent
                 placeholder={t("cart-section.input.placeholder")}
                 className="outline-none text-[10px] tablet:text-[12px] laptop:text-[13px] desktop:text-[15px]"
@@ -72,7 +72,7 @@ const CartSection: React.FC<CartProps> = ({ products }) => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
