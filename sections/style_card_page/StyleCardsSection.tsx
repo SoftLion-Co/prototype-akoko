@@ -2,7 +2,7 @@
 import FilterButtonComponent from "@/components/FilterButtonComponent";
 import StyleCardComponent from "@/components/StyleCardComponent";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "@mantine/hooks";
 
 import { Pagination } from "@mantine/core";
@@ -123,9 +123,9 @@ const initialStyles: Style[] = [
 ];
 
 const StyleCardsSection = () => {
-
   const [styles, setStyles] = useState(initialStyles);
   const [currentPage, setCurrentPage] = useState(1);
+
   const isMobile = useMediaQuery("(max-width: 767.98px)");
   const isTablet = useMediaQuery(
     "(min-width: 768px) and (max-width: 1279.98px)"
@@ -134,7 +134,11 @@ const StyleCardsSection = () => {
     "(min-width: 1280px) and (max-width: 1660px)"
   );
 
-  const cardsPerRow = isMobile ? 1 : isTablet ? 3 : isDesktop ? 4 : 4;
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
+  const cardsPerRow = isMobile ? 2 : isTablet ? 3 : isDesktop ? 4 : 4;
   const cardsPerPage = cardsPerRow * 3;
   const startIndex = (currentPage - 1) * cardsPerPage;
   const endIndex = startIndex + cardsPerPage;
@@ -151,6 +155,7 @@ const StyleCardsSection = () => {
     }
   });
 
+  const isPaginationNeeded = filteredCardItems.length > cardsPerPage;
   const paginatedCardItems = filteredCardItems.slice(startIndex, endIndex);
 
   const handleButtonClick = (id: string) => {
@@ -175,7 +180,6 @@ const StyleCardsSection = () => {
           {isMobile ? (
             <div className="container">
               <Carousel
-                className=""
                 withControls={false}
                 loop
                 align="start"
@@ -183,28 +187,28 @@ const StyleCardsSection = () => {
               >
                 {styles.map((item, index) => (
                   <div className="flex gap-[20px]">
-                  <FilterButtonComponent
-                    key={index}
-                    text={item.name}
-                    isActive={item.isActive}
-                    onClick={() => handleButtonClick(item.id)}
-                  />
-                </div>
+                    <FilterButtonComponent
+                      key={index}
+                      text={item.name}
+                      isActive={item.isActive}
+                      onClick={() => handleButtonClick(item.id)}
+                    />
+                  </div>
                 ))}
               </Carousel>
             </div>
           ) : (
             styles.map((item, index) => (
-                <FilterButtonComponent
-                  key={index}
-                  text={item.name}
-                  isActive={item.isActive}
-                  onClick={() => handleButtonClick(item.id)}
-                />
+              <FilterButtonComponent
+                key={index}
+                text={item.name}
+                isActive={item.isActive}
+                onClick={() => handleButtonClick(item.id)}
+              />
             ))
           )}
         </div>
-        <div className="flex flex-row flex-wrap justify-center gap-[42px] tablet:gap-[50px] laptop:gap-[40px] desktop:gap-[51px] ">
+        <div className="flex flex-row flex-wrap justify-center gap-[42px] tablet:gap-[40px] laptop:gap-[40px] desktop:gap-[51px] ">
           {paginatedCardItems.map((card, index) => (
             <div key={index}>
               <StyleCardComponent
@@ -218,30 +222,33 @@ const StyleCardsSection = () => {
         </div>
       </div>
       <div className=" flex justify-center ">
-        <Pagination
-          size="lg"
-          withControls={false}
-          total={12}
-          color="rgba(255, 255, 255, 0)"
-          onChange={handlePageChange}
-          value={currentPage}
-          
-          styles={{
-            control: {
-              border: "none",
-              backgroundColor: "transparent",
-              "&[data-active]": {
-                color: "black",
-                fontWeight: 700,
-                border: "1px solid #CECECE",
-                backgroundColor: "transparent",
-              },
-            },
-            dots: {
-              color: "#8B8B8B",
-            },
-          }}
-        />
+        {isPaginationNeeded && (
+          <div>
+            <Pagination
+              size="lg"
+              withControls={false}
+              total={Math.ceil(filteredCardItems.length / cardsPerPage)}
+              color="rgba(255, 255, 255, 0)"
+              onChange={handlePageChange}
+              value={currentPage}
+              styles={{
+                control: {
+                  border: "none",
+                  backgroundColor: "transparent",
+                  "&[data-active]": {
+                    color: "black",
+                    fontWeight: 700,
+                    border: "1px solid #CECECE",
+                    backgroundColor: "transparent",
+                  },
+                },
+                dots: {
+                  color: "#8B8B8B",
+                },
+              }}
+            />
+          </div>
+        )}
       </div>
     </section>
   );
