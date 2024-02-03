@@ -1,10 +1,10 @@
-import OtherStyleSection from "@/sections/style_page/OtherStyleSection";
 import React from "react";
+import StyleCardsSection from "@/sections/style_page/StyleCardsSection";
 
 function page() {
   return (
     <div>
-      <OtherStyleSection />
+      <StyleCardsSection />
     </div>
   );
 }
