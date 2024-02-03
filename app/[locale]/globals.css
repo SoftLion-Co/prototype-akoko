@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply font-inter m-0 flex flex-col min-h-screen;
+  @apply font-inter m-0 flex flex-col min-h-screen overflow-x-hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
