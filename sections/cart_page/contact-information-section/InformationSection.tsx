@@ -1,7 +1,11 @@
 import ContactForm from "@/components/cart_page/ContactForm";
-import React, { RefObject } from "react";
+import React from "react";
 
-const InformationSection: React.FC = () => {
+interface InformationProps {
+  t: any;
+}
+
+const InformationSection: React.FC<InformationProps> = ({ t }) => {
   return (
     <>
       <h3>Конактна інформація</h3>

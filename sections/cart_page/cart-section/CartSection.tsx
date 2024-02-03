@@ -30,7 +30,7 @@ const CartSection: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-[40px] h-full  w-full tablet:relative tablet:gap-[70px] laptop:gap-[90px] desktop:gap-[130px]">
+      <div className="flex flex-col gap-[40px] h-full w-full tablet:relative tablet:gap-[70px] laptop:gap-[90px] desktop:gap-[130px]">
         {products.map((product, index) => (
           <CartCardComponent
             key={index}

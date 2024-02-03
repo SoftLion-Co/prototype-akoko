@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import NavigationComponent from "@/components/NavigationComponent";
 import { useTranslations } from "next-intl";
 import CartSection from "./cart-section/CartSection";
@@ -57,16 +57,16 @@ const CartPage: React.FC = () => {
       <div className="container scroll-smooth flex mb-[50px] tablet:justify-between tablet:mb-[100px] laptop:mb-[150px] desktop:mb-[200px]">
         {products.length !== 0 ? (
           <>
-            <div className="w-full">
+            <div className="w-full flex flex-col gap-[100px] tablet:gap-[150px] laptop:gap-[150px] desktop:gap-[160px]">
               <section
-                className="w-full tablet:w-[70%] tablet:h-auto pt-[20px]"
+                className="w-full border-b pb-[80px] tablet:h-auto pt-[20px]"
                 id="cart-products"
                 ref={cartProductsRef}
               >
                 <CartSection />
               </section>
               <section
-                className="w-full flex flex-col items-center gap-[80px] tablet:gap-[90px] laptop:gap-[95px]"
+                className="w-full border-b pb-[80px] flex flex-col items-center gap-[80px] tablet:gap-[90px] laptop:gap-[95px]"
                 id="contact-information"
                 ref={contactInformationRef}
               >

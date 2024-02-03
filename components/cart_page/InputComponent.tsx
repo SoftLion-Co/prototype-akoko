@@ -23,7 +23,7 @@ const InputComponent: React.FC<InputProps> = ({
         type={type}
         name={name}
         placeholder={placeholder}
-        className="border-b border-[#CECECE] pe-[10px] py-[15px] ps-[30px] rounded-none focus:border-b-black"
+        className="border-b border-[#CECECE] pe-[10px] py-[15px] ps-[30px] rounded-none focus:border-b-black text-[15px] tablet:text-[17px] laptop:text-[18px]"
       />
     </div>
   );

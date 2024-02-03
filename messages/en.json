@@ -42,6 +42,15 @@
         "delivery": "Delivery",
         "payment": "Payment"
       }
+    },
+    "contact-information-section": {
+      "title": "Contact Information",
+      "input": {
+        "name": "Name",
+        "last-name": "Last Name",
+        "phone-number": "Phone Number",
+        "e-mail": "E-mail"
+      }
     }
   },
   "components": {
