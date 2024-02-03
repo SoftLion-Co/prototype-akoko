@@ -46,17 +46,24 @@ const DesktopOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
         <Carousel
           loop
           slideSize="25%"
-          slideGap="xl"
+          slideGap="lg"
           align="start"
           slidesToScroll={1}
           className="mb-[20%]"
           styles={{
             controls: {
-                display: "flex",
-                left: "-7%",
-                right: "-7%",
-                top: "40%"
-
+              display: "flex",
+              left: "-4.5%",
+              right: "-4.5%",
+              top: "40%",
+              "@media (min-width: 768px)": {
+                left: "-5.3%",
+                right: "-5.3%",
+              },
+              "@media (min-width: 1280px)": {
+                left: "-4.5%",
+                right: "-4.5%",
+              },
             },
             control: {
               background: "none",
@@ -64,23 +71,20 @@ const DesktopOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
               boxShadow: "none",
             },
           }}
-          nextControlIcon={
-            <NextArrow  />
-          }
-          previousControlIcon={
-            <PrevArrow />
-          }
+          nextControlIcon={<NextArrow />}
+          previousControlIcon={<PrevArrow />}
         >
           {cardItem.map((card, index) => (
             <Carousel.Slide className="text-center" key={index}>
-              <div>
-                <StyleCardComponent
-                  key={index}
-                  name={card.title}
-                  image={card.image}
-                  link={card.link}
-                />
-              </div>
+              {/* <div> */}
+              <StyleCardComponent
+                key={index}
+                name={card.title}
+                image={card.image}
+                link={card.link}
+                classImage="tablet:!w-full"
+              />
+              {/* </div> */}
             </Carousel.Slide>
           ))}
         </Carousel>
