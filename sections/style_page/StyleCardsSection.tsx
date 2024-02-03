@@ -174,12 +174,12 @@ const StyleCardsSection = () => {
   };
 
   return (
-    <section className="container mt-[47px] mb-[109px] tablet:mt-[120px] tablet:mb-[160px]">
+    <section className="container mt-[47px] mb-[109px] tablet:mt-[120px] tablet:mb-[130px] desktop:mb-[160px]">
       <div className="flex flex-col gap-[70px] mb-[109px] tablet:gap-[120px] tablet:mb-[150px] ">
-        <div className="flex justify-between">
+        <div className="flex justify-between tablet:gap-[5px]">
           {isMobile ? (
             <div className="container">
-              <Carousel withControls={false} loop align="start" slideGap="xl">
+              <Carousel withControls={false} loop align="start" slideGap="sm">
                 {styles.map((item, index) => (
                   <div className="flex ">
                     <FilterButtonComponent
@@ -203,20 +203,21 @@ const StyleCardsSection = () => {
             ))
           )}
         </div>
-        <div className="flex flex-row flex-wrap justify-center gap-[42px] tablet:justify-start tablet:gap-x-[19px] tablet:gap-y-[40px] laptop:gap-[62px] desktop:gap-[70px] ">
+        <div className=" flex flex-row flex-wrap justify-center gap-[42px] tablet:justify-start tablet:gap-x-[19px] tablet:gap-y-[40px] laptop:gap-[62px] desktop:gap-[70px] ">
           {paginatedCardItems.map((card, index) => (
-            <div key={index}>
+            <div key={index} className="mobile:w-[90%]">
               <StyleCardComponent
                 key={card.id}
                 name={card.title}
                 image={card.image}
-                link={card.link}
+                link=""
+                classImage="mobile:h-[320px]"
               />
             </div>
           ))}
         </div>
       </div>
-      <div className=" flex justify-center ">
+      <div className=" flex justify-center">
         {isPaginationNeeded && (
           <div>
             <Pagination
