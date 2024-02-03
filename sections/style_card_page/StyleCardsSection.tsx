@@ -174,7 +174,7 @@ const StyleCardsSection = () => {
   };
 
   return (
-    <section className="container mt-[47px] mb-[109px] tablet:mt-[120px] tablet:mb-[160px]">
+    <section className="container mt-[47px] mb-[109px] tablet:mt-[120px] tablet:mb-[130px] desktop:mb-[160px]">
       <div className="flex flex-col gap-[70px] mb-[109px] tablet:gap-[120px] tablet:mb-[150px] ">
         <div className="flex justify-center">
           {isMobile ? (
@@ -182,7 +182,7 @@ const StyleCardsSection = () => {
               <Carousel
                 withControls={false}
                 loop
-                align="start"
+                align="center"
                 slideGap="xl"
               >
                 {styles.map((item, index) => (
@@ -208,9 +208,9 @@ const StyleCardsSection = () => {
             ))
           )}
         </div>
-        <div className="flex flex-row flex-wrap justify-center gap-[42px] tablet:justify-start tablet:gap-x-[19px] tablet:gap-y-[40px] laptop:gap-[62px] desktop:gap-[70px] ">
+        <div className=" flex flex-row flex-wrap justify-center gap-[42px] tablet:justify-start tablet:gap-x-[19px] tablet:gap-y-[40px] laptop:gap-[62px] desktop:gap-[70px] ">
           {paginatedCardItems.map((card, index) => (
-            <div key={index}>
+            <div key={index} className="mobile:w-[90%]" >
               <StyleCardComponent
                 key={card.id}
                 name={card.title}
