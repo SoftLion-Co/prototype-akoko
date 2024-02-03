@@ -6,10 +6,13 @@ import InputPromoCodeComponent from "@/components/cart_page/InputPromoCodeCompon
 import { useTranslations } from "next-intl";
 import { products } from "@/sections/cart_page/index";
 
-const CartSection: React.FC = () => {
+interface InformationProps {
+  t: any;
+}
+
+const CartSection: React.FC<InformationProps> = ({ t }) => {
   const [promoCode, setPromoCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
-  const t = useTranslations("cart-page");
 
   useEffect(() => {
     const calculatedTotalPrice = products.reduce((acc, product) => {

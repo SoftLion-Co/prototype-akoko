@@ -1,27 +1,36 @@
 import React from "react";
 import InputComponent from "./InputComponent";
 
-const ContactForm = () => {
+interface ContactProps {
+  t: any;
+}
+
+const ContactForm: React.FC<ContactProps> = ({ t }) => {
   return (
     <>
-      <InputComponent name="name" placeholder="Name" type="text" title="Name" />
+      <InputComponent
+        name="name"
+        placeholder={t("contact-information-section.input.name")}
+        type="text"
+        title={t("contact-information-section.input.name")}
+      />
       <InputComponent
         name="lastName"
-        placeholder="Last name"
+        placeholder={t("contact-information-section.input.last-name")}
         type="text"
-        title="Last name"
+        title={t("contact-information-section.input.last-name")}
       />
       <InputComponent
         name="phoneNumber"
-        placeholder="Phone number"
+        placeholder={t("contact-information-section.input.phone-number")}
         type="number"
-        title="Phone number"
+        title={t("contact-information-section.input.phone-number")}
       />
       <InputComponent
         name="email"
-        placeholder="E-mail"
+        placeholder={t("contact-information-section.input.e-mail")}
         type="text"
-        title="E-mail"
+        title={t("contact-information-section.input.e-mail")}
       />
     </>
   );

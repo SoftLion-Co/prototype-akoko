@@ -42,6 +42,15 @@
         "delivery": "Доставка",
         "payment": "Оплата"
       }
+    },
+    "contact-information-section": {
+      "title": "Контактна інформація",
+      "input": {
+        "name": "Ім'я",
+        "last-name": "Призвіще",
+        "phone-number": "Номер телефону",
+        "e-mail": "Електронна адреса"
+      }
     }
   },
   "components": {

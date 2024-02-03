@@ -63,14 +63,14 @@ const CartPage: React.FC = () => {
                 id="cart-products"
                 ref={cartProductsRef}
               >
-                <CartSection />
+                <CartSection t={t} />
               </section>
               <section
                 className="w-full border-b pb-[80px] flex flex-col items-center gap-[80px] tablet:gap-[90px] laptop:gap-[95px]"
                 id="contact-information"
                 ref={contactInformationRef}
               >
-                <InformationSection />
+                <InformationSection t={t} />
               </section>
             </div>
             <SidebarLinksComponent

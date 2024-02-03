@@ -8,13 +8,13 @@ interface InformationProps {
 const InformationSection: React.FC<InformationProps> = ({ t }) => {
   return (
     <>
-      <h3>Конактна інформація</h3>
+      <h3>{t("contact-information-section.title")}</h3>
       {/* <ContactForm /> */}
       <form
         action=""
         className="flex flex-col gap-[40px] tablet:gap-[60px] laptop:gap-[90px]"
       >
-        <ContactForm />
+        <ContactForm t={t} />
       </form>
     </>
   );
