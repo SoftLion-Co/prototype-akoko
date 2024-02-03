@@ -26,6 +26,10 @@ button {
   @apply cursor-pointer;
 }
 
+input {
+  @apply outline-none;
+}
+
 h1,
 h2,
 h3,
@@ -42,6 +46,10 @@ h1 {
 
 h2 {
   @apply text-16 text-black font-500 tracking-0.965 tablet:text-20 laptop:text-35 laptop:tracking-1.75 desktop:text-40 desktop:tracking-2;
+}
+
+h3 {
+  @apply text-15 text-black font-600 tracking-0.662 tablet:font-500 tablet:text-28 tablet:tracking-1.153 laptop:text-30 laptop:tracking-1.2;
 }
 
 p {
