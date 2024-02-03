@@ -1,12 +1,12 @@
-import StyleCardsSection from '@/sections/style_card_page/StyleCardsSection'
-import React from 'react'
+import StyleCardsSection from "@/sections/style_card_page/StyleCardsSection";
+import React from "react";
 
 function page() {
-	return (
-		<div>
-			<StyleCardsSection />
-		</div>
-	)
+  return (
+    <div>
+      <StyleCardsSection />
+    </div>
+  );
 }
 
-export default page
+export default page;

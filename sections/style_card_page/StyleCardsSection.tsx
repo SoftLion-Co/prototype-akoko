@@ -135,7 +135,7 @@ const StyleCardsSection = () => {
   );
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   const cardsPerRow = isMobile ? 2 : isTablet ? 4 : isDesktop ? 4 : 4;
@@ -176,17 +176,17 @@ const StyleCardsSection = () => {
   return (
     <section className="container mt-[47px] mb-[109px] tablet:mt-[120px] tablet:mb-[130px] desktop:mb-[160px]">
       <div className="flex flex-col gap-[70px] mb-[109px] tablet:gap-[120px] tablet:mb-[150px] ">
-        <div className="flex justify-center">
+        <div className="flex justify-between">
           {isMobile ? (
             <div className="container">
               <Carousel
                 withControls={false}
                 loop
-                align="center"
+                align="start"
                 slideGap="xl"
               >
                 {styles.map((item, index) => (
-                  <div className="flex gap-[20px]">
+                  <div className="flex ">
                     <FilterButtonComponent
                       key={index}
                       text={item.name}
