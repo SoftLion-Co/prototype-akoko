@@ -3,7 +3,7 @@ import React from "react";
 interface ButtonProps {
   title: string;
   className: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const ButtonComponent: React.FC<ButtonProps> = ({

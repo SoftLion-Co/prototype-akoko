@@ -10,7 +10,6 @@ type CardProps = {
   link: string;
 };
 
-
 const MobileOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
   cardItem,
 }) => {
@@ -23,7 +22,7 @@ const MobileOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
         align="start"
         slidesToScroll={1}
         withIndicators
-        withControls = {false}
+        withControls={false}
         className="mb-[20%] text-[2vw]"
         styles={{
           indicators: {
@@ -40,7 +39,6 @@ const MobileOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
             borderRadius: 0,
           },
         }}
-        
       >
         {cardItem.map((card, index) => (
           <Carousel.Slide className="text-center" key={index}>
@@ -50,6 +48,7 @@ const MobileOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
                 name={card.title}
                 image={card.image}
                 link={card.link}
+                classImage="h-[300px]"
               />
             </div>
           </Carousel.Slide>

@@ -7,14 +7,23 @@ interface CartProps {
   name: string;
   image: string;
   link: string;
+  classImage?: string;
 }
 
-const StyleCardComponent: React.FC<CartProps> = ({ name, image, link }) => {
+const StyleCardComponent: React.FC<CartProps> = ({
+  name,
+  image,
+  link,
+  classImage,
+}) => {
   return (
     <div className="w-full h-full flex flex-col gap-[8px] justify-between items-center tablet:w-auto tablet:h-auto">
       <Link href={link} className="h-full w-full">
         <Image
-          className="object-cover w-full h-[380px] tablet:w-[160px] tablet:h-[210px] laptop:w-[240px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px]"
+          className={classNames(
+            "object-cover w-full h-[380px] tablet:w-[160px] tablet:h-[210px] laptop:w-[240px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px]",
+            classImage
+          )}
           src={image}
           width={325}
           height={420}
