@@ -21,6 +21,7 @@ const config: Config = {
       yellow: "#d89e08",
       blue: "#5b749a",
       gray: "#707070",
+      "light-gray": "#F4F6F8"
     },
 
     screens: {
