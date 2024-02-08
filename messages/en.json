@@ -54,7 +54,13 @@
     }
   },
   "components": {
-    "home": "Home"
+    "home": "Home",
+    "style-card":{
+      "modal":{
+        "title":"Choose Size",
+        "button":"In cart"
+      }
+    }
   },
   "about": {
     "title": "About the company",

@@ -54,7 +54,13 @@
     }
   },
   "components": {
-    "home": "Головна"
+    "home": "Головна",
+    "style-card":{
+      "modal":{
+        "title":"Оберіть Розмір",
+        "button": "В кошик"
+      }
+    }
   },
   "about": {
     "title": "Про компанію",
