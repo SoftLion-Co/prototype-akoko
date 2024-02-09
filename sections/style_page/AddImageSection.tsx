@@ -162,11 +162,11 @@ const testProducts: ProductCardData[] = [
 const AddImageSection = () => {
   const t = useTranslations("style");
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsTablet(window.innerWidth < 1279.98);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -179,9 +179,9 @@ const AddImageSection = () => {
     <section className="container mb-[70px] tablet:mb-[84px] laptop:mb-[154px] desktop:mb-[130px]">
       <div className="flex flex-col gap-[43px] tablet:gap-[60px] laptop:gap-[86px] desktop:gap-[120px] ">
         <h1>{t("add-image-section.title")}</h1>
-        <div className="flex flex-wrap justify-center gap-[46px] tablet:justify-evenly laptop:justify-between tablet:gap-[89px] laptop:gap-[147px] desktop:gap-[164px]">
+        <div className="flex flex-wrap justify-center tablet:justify-between laptop:gap-[147px] desktop:gap-[164px]">
           {testProducts
-            .filter((_, index) => index < (isMobile ? testProducts.length - 2 : 6))
+            .filter((_, index) => index < (isTablet ? testProducts.length - 2 : 6))
             .map((data, index) => (
               <MainProductCard key={index} {...data} classNames="" />
             ))}

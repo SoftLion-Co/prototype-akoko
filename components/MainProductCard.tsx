@@ -69,7 +69,7 @@ const MainProductCard: React.FC<ProductCardData> = ({
       <div className="relative transition-opacity duration-300 ease-in-out">
         <Link href={""}>
           <img
-            className={`object-cover bg-blue mb-[20px] max-w-[284px] h-[380px] tablet:w-[240px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] ${
+            className={`object-cover bg-blue mb-[20px] max-w-[284px] h-[380px] tablet:w-[210px] tablet:h-[340px] tablet:mb-[18px] laptop:h-[360px] desktop:min-w-[315px] desktop:h-[420px] desktop:mb-[24px] ${
               isHovered
                 ? "opacity-80 transition-opacity duration-300 ease-in-out"
                 : ""
