@@ -3,9 +3,9 @@ import OtherStyleSection from "@/sections/style_card_page/OtherStyleSection";
 
 function page() {
   return (
-    <div>
+    <>
       <OtherStyleSection />
-    </div>
+    </>
   );
 }
 

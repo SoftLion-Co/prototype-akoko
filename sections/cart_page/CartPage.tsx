@@ -47,7 +47,7 @@ const CartPage: React.FC = () => {
   const activeSection = useScroll(sidebarLinks);
 
   return (
-    <div className="mt-[120px] flex flex-col gap-[50px] tablet:gap-[150px] laptop:gap-[200px]">
+    <section className="mt-[120px] flex flex-col gap-[50px] tablet:gap-[150px] laptop:gap-[200px]">
       <NavigationComponent
         links={[
           { title: `${t("breadcrums.card-items")}`, href: "/item" },
@@ -84,7 +84,7 @@ const CartPage: React.FC = () => {
           </>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
