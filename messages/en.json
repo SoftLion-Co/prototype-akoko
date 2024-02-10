@@ -28,7 +28,8 @@
       "card": {
         "price": "Price",
         "color": "Colors",
-        "size": "Sizes"
+        "size": "Sizes",
+        "measurement": "Measurement"
       },
       "input": {
         "title": "Input promo code",
