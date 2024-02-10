@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import CartCardComponent from "@/components/cart_page/CartCardComponent";
 import { IoIosArrowForward } from "react-icons/io";
 import InputPromoCodeComponent from "@/components/cart_page/InputPromoCodeComponent";
-import { useTranslations } from "next-intl";
 import { products } from "@/sections/cart_page/index";
 
 interface InformationProps {
@@ -40,9 +39,7 @@ const CartSection: React.FC<InformationProps> = ({ t }) => {
             img={product.img}
             name={product.name}
             selectColor={product.selectColor}
-            colors={product.colors}
             selectSize={product.selectSize}
-            sizes={product.size}
             count={product.count}
             price={product.price}
             translation={{
@@ -50,13 +47,14 @@ const CartSection: React.FC<InformationProps> = ({ t }) => {
               color: `${t("cart-section.card.color")}`,
               size: `${t("cart-section.card.size")}`,
             }}
+            isModal={false}
           />
         ))}
         {/* Total price promo */}
         <div className="flex flex-col h-auto w-auto gap-[20px]">
           <div className="flex flex-col gap-[10px]">
             <p className="font-500">{t("cart-section.input.title")}</p>
-            <div className="h-auto w-[180px] flex items-center py-[5px] border-b border-[#CECECE] pl-[18px] tablet:pl-[20px] tablet:gap-[5px] tablet:w-[65%] laptop:w-[37%] desktop:w-[35%] desktop:pl-[30px]">
+            <div className="h-auto w-[180px] flex items-center py-[5px] border-b border-[#CECECE] pl-[18px] tablet:pl-[20px] tablet:gap-[5px] tablet:w-[44%] laptop:w-[26%] desktop:w-[24%] desktop:pl-[30px]">
               <InputPromoCodeComponent
                 placeholder={t("cart-section.input.placeholder")}
                 className="outline-none text-[10px] tablet:text-[12px] laptop:text-[13px] desktop:text-[15px]"
