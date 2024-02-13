@@ -59,7 +59,13 @@
     "style-card":{
       "modal":{
         "title":"Choose Size",
-        "button":"In cart"
+        "button":"In cart",
+        "card": {
+          "price": "Price",
+          "color": "Colors",
+          "size": "Sizes",
+          "measurement": "Measurement"
+        }
       }
     }
   },

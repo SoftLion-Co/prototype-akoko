@@ -59,7 +59,13 @@
     "style-card":{
       "modal":{
         "title":"Оберіть Розмір",
-        "button": "В кошик"
+        "button": "В кошик",
+        "card": {
+          "price": "Ціна",
+          "color": "Колір",
+          "size": "Розмір",
+          "measurement": "Заміри"
+        }
       }
     }
   },

@@ -44,7 +44,7 @@ const CartCardComponent: React.FC<CardProps> = ({
   const [isSize, setSize] = useState(selectSize);
   const pathname = usePathname();
 
-  const handleAddCountClick = () => setCounter((prev) => prev + 1);
+  const handleAddCountClick = () => setCounter((prev: any) => prev + 1);
 
   const handleMinusCountClick = () => {
     setCounter((prev) => (prev <= 0 ? 0 : prev - 1));
