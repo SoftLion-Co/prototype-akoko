@@ -65,6 +65,10 @@
   "style": {
     "other-style-section": {
       "title": "Other styles"
+    },
+    "stylish-image-section": {
+      "title": "Choose your look",
+      "button": "Complete the look"
     }
   }
 }

@@ -65,6 +65,10 @@
   "style": {
     "other-style-section": {
       "title": "Інші стилі"
+    },
+    "stylish-image-section": {
+      "title": "Підбери собі образ",
+      "button": "Додати весь образ"
     }
   }
 }
