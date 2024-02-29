@@ -1,5 +1,4 @@
-"use client"
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { Link } from "@/navigation";
 import Image from "next/image";
 
@@ -10,35 +9,15 @@ type BlogCardComponentProps = {
   text: string;
 };
 
-const BlogCardComponent = ({ blogId, title, text, imageSrc }: BlogCardComponentProps) => {
-  const titleRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    const titleElement = titleRef.current;
-
-    if (titleElement) {
-      const lineHeight = parseInt(window.getComputedStyle(titleElement).lineHeight);
-      const maxLines = 2;
-
-      if (titleElement.offsetHeight > lineHeight * maxLines) {
-        titleElement.classList.add("truncate");
-      }
-    }
-  }, []);
-
-  const handleHover = () => {
-    setIsHovered(true);
-  };
-
-  const handleLeave = () => {
-    setIsHovered(false);
-  };
-
+const BlogCardComponent = ({
+  blogId,
+  title,
+  text,
+  imageSrc,
+}: BlogCardComponentProps) => {
   return (
     <Link href={`/blog/${blogId}`}>
-      <div className={`relative group overflow-hidden ${isHovered ? "whitespace-normal" : ""}`}onMouseEnter={handleHover}
-          onMouseLeave={handleLeave}>
+      <div className="relative group overflow-hidden max-h-[300px] tablet:max-h-none">
         <Image
           src={imageSrc}
           alt="blog image"
@@ -46,17 +25,13 @@ const BlogCardComponent = ({ blogId, title, text, imageSrc }: BlogCardComponentP
           height={1000}
           className="aspect-[53/55] object-cover"
         />
-        <div
-          className={`absolute bottom-0 bg-primary/75 h-[28%] group-hover:h-[60%] w-full py-3 laptop:py-6 desktop:py-7 px-1 laptop:px-2 desktop:px-[10px] transition-all duration-300`}
-          
-        >
-          <h2
-            ref={titleRef}
-            className={`text-xl font-extralight laptop:text-3xl desktop:text-4xl mb-2 ${isHovered ? "" : "whitespace-nowrap overflow-hidden max-h-[2.5em] truncate"}`}
-          >
+        <div className="absolute bottom-0 bg-primary/75 h-[28%] group-hover:h-[65%] tablet:group-hover:h-[60%] laptop:group-hover:h-[50%] w-full py-3 laptop:py-6 desktop:py-7 px-1 laptop:px-2 desktop:px-[10px] transition-all duration-300">
+          <h2 className="text-xl font-extralight laptop:text-3xl desktop:text-4xl mb-2 line-clamp-2">
             {title}
           </h2>
-          <p className="text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-0 right-0 px-1 laptop:px-2 desktop:px-[10px]">{text}</p>
+          <p className="text-sm tablet:text-md laptop:text-xl font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute left-0 right-0 px-1 laptop:px-2 desktop:px-[10px] line-clamp-5">
+            {text}
+          </p>
         </div>
       </div>
     </Link>
