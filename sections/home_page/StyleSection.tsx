@@ -4,7 +4,7 @@ import { Link } from "@/navigation";
 import Arrow from "@/images/icons/vector.svg";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import StyleSliderComponent from "@/components/StyleSliderComponent";
+import MobileStyleSliderComponent from "@/components/MobileStyleSliderComponent";
 import StyleCardComponent from "@/components/StyleCardComponent";
 
 type CartProps = {
@@ -36,7 +36,7 @@ const cartItem: CartProps[] = [
   },
 ];
 
-export const StyleSection = () => {
+const StyleSection = () => {
   const t = useTranslations("home");
   return (
     <section className="w-full h-auto">
@@ -54,7 +54,7 @@ export const StyleSection = () => {
           ))}
         </div>
         {/* Mobile slider for cart */}
-        <StyleSliderComponent cartItem={cartItem} />
+        <MobileStyleSliderComponent cartItem={cartItem} />
 
         {/* Button */}
         <Link
@@ -76,3 +76,5 @@ export const StyleSection = () => {
     </section>
   );
 };
+
+export default StyleSection;

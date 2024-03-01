@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "@/images/header/Akoko.svg";
 import User from "@/images/icons/user.svg";
 import Menu from "@/images/icons/burger-menu.svg";
-import Cart from "@/images/icons/cart.svg";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Heart from "@/images/icons/heart.svg";
 import Search from "@/images/icons/search.svg";
 import { IoIosArrowUp } from "react-icons/io";
@@ -70,7 +70,7 @@ const HeaderComponent = () => {
   };
 
   const handleClickSearch = () => {
-    console.log(searchValue);
+    searchValue.length != 0 ? console.log(searchValue) : null;
     setSearchValue("");
   };
 
@@ -82,7 +82,7 @@ const HeaderComponent = () => {
   useEffect(() => {
     const handleScroll = () => {
       const { scrollY } = window;
-      if (scrollY < 20) {
+      if (scrollY < 40) {
         setIsVisible("default");
       } else if (scrollY > prevScroll.current) {
         setIsVisible("down");
@@ -116,11 +116,15 @@ const HeaderComponent = () => {
   return (
     <header
       className={classNames(
-        "fixed w-full h-auto bg-primary tablet:h-[76px]laptop:h-[120px] desktop:h-[150px] z-50",
-        isVisible == "default" ? "fixed" : "shadow-xl"
+        "fixed w-full h-auto bg-primary tablet:h-[76px] laptop:h-[120px] desktop:h-[150px] z-50 transition-transform",
+        isVisible == "down"
+          ? "fixed tablet:translate-y-[-76px] laptop:translate-y-[-120px] desktop:translate-y-[-150px]"
+          : isVisible !== "default"
+          ? "shadow-xl"
+          : null
       )}
     >
-      <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[20px] ">
+      <div className="container w-screen flex justify-between items-baseline gap-[10px] py-[10px] tablet:gap-0 tablet:py-[15px] laptop:py-[24px] desktop:py-[30px]">
         {/* Menu and search */}
         <div className="flex-1">
           <div className="flex items-center gap-[20px] tablet:gap-[55px] laptop:gap-[85px] desktop:gap-[120px]">
@@ -140,7 +144,14 @@ const HeaderComponent = () => {
                 value={searchValue}
                 onChange={handleSearchChange}
               />
-              <div onClick={handleClickSearch}>
+              <div
+                onClick={handleClickSearch}
+                className={
+                  searchValue.length != 0
+                    ? "cursor-pointer"
+                    : "cursor-not-allowed"
+                }
+              >
                 <Image
                   src={Search}
                   alt="Search"
@@ -150,7 +161,7 @@ const HeaderComponent = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 laptop:pr-[45px] desktop:pr-[70px]">
           <div className="flex items-end gap-[5px]">
             {/* Logo */}
             <Link
@@ -208,10 +219,10 @@ const HeaderComponent = () => {
           <div className="flex gap-[15px] tablet:gap-[40px] laptop:gap-[55px] desktop:gap-[70px]">
             <div className="flex gap-[5px] tablet:gap-[7px] desktop:gap-[10px]">
               <Link href="/cart">
-                <Image
-                  src={Cart}
-                  alt="Cart"
-                  className="min-w-[15px] min-h-[15px] w-[17px] h-[17px]  cursor-pointer tablet:w-[23px] tablet:h-[23px] laptop:w[32px] laptop:h-[32px] desktop:w-[37px] desktop:h-[37px]"
+                <HiOutlineShoppingBag
+                  className={classNames(
+                    "min-w-[15px] min-h-[15px] w-[17px] h-[17px]  cursor-pointer tablet:w-[23px] tablet:h-[23px] laptop:w[32px] laptop:h-[32px] desktop:w-[37px] desktop:h-[37px]"
+                  )}
                 />
               </Link>
               <Link href="/wishlist">

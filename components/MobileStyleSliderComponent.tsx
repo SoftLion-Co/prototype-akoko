@@ -8,21 +8,33 @@ type CartProps = {
   link: string;
 };
 
-const StyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
+const MobileStyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
   cartItem,
 }) => {
   return (
     <div className="tablet:hidden">
       <Carousel
-        slideSize="91%"
+        slideSize="50%"
         slideGap={"sm"}
         loop
         withControls={false}
         withIndicators
-        align="center"
-        slidesToScroll={1}
+        align="start"
+        slidesToScroll={2}
         className="mb-[10%] text-[2vw]"
         styles={{
+          slide: {
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            paddingRight: "10px",
+            "&:first-of-type": {
+              paddingLeft: "5px",
+            },
+            "&:last-of-type": {
+              paddingRight: "5px",
+            },
+          },
           indicators: {
             fontSize: "1em",
             alignItems: "center",
@@ -54,4 +66,4 @@ const StyleSliderComponent: React.FC<{ cartItem: CartProps[] }> = ({
   );
 };
 
-export default StyleSliderComponent;
+export default MobileStyleSliderComponent;
