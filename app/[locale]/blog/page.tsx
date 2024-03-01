@@ -8,7 +8,7 @@ function Blog() {
   const links = [{ title: t("blog"), href: "" }];
 
   return (
-    <section className="container mb-28 tablet:mb-40">
+    <section className="container mb-28 tablet:mb-40 mt-[120px]">
       <NavigationComponent links={links} />
       <BlogPageSection />
     </section>

@@ -25,7 +25,7 @@ const BlogCardComponent = ({
           height={1000}
           className="aspect-[53/55] object-cover"
         />
-        <div className="absolute bottom-0 bg-primary/75 h-[28%] group-hover:h-[65%] tablet:group-hover:h-[60%] laptop:group-hover:h-[50%] w-full py-3 laptop:py-6 desktop:py-7 px-1 laptop:px-2 desktop:px-[10px] transition-all duration-300">
+        <div className="absolute bottom-0 bg-primary/75 h-[28%] group-hover:h-[65%] tablet:group-hover:h-[60%] laptop:group-hover:h-[50%] desktop:group-hover:h-[40%] w-full py-3 laptop:py-6 desktop:py-7 px-1 laptop:px-2 desktop:px-[10px] transition-all duration-300">
           <h2 className="text-xl font-extralight laptop:text-3xl desktop:text-4xl mb-2 line-clamp-2">
             {title}
           </h2>

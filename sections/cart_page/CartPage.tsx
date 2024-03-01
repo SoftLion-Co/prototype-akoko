@@ -47,14 +47,14 @@ const CartPage: React.FC = () => {
   const activeSection = useScroll(sidebarLinks);
 
   return (
-    <section className="mt-[120px] flex flex-col gap-[50px] tablet:gap-[150px] laptop:gap-[200px]">
+    <section className="container mt-[120px] flex flex-col">
       <NavigationComponent
         links={[
           { title: `${t("breadcrums.card-items")}`, href: "/item" },
           { title: `${t("breadcrums.cart")}`, href: "/cart" },
         ]}
       />
-      <div className="container scroll-smooth flex mb-[50px] tablet:justify-between tablet:mb-[100px] laptop:mb-[150px] desktop:mb-[200px]">
+      <div className="scroll-smooth flex mb-[50px] tablet:justify-between tablet:mb-[100px] laptop:mb-[150px] desktop:mb-[200px]">
         {products.length !== 0 ? (
           <>
             <div className="w-full flex flex-col gap-[100px] tablet:gap-[150px] laptop:gap-[150px] desktop:gap-[160px]">
