@@ -1,8 +1,9 @@
+import NewCollectionSection from '@/sections/serticifate_page/NewCollectionSection'
 import React from 'react'
 
 const page = () => {
 	return (
-		<div>page</div>
+		<NewCollectionSection />
 	)
 }
 
