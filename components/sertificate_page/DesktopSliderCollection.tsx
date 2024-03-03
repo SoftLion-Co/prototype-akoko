@@ -23,7 +23,7 @@ interface ProductCardData {
 
 const NextArrow = () => {
   return (
-    <div className="cursor-pointer tablet:w-[30px] tablet:h-[45px] laptop:w-[40px] laptop:h-[60px] desktop:w-[50px] desktop:h-[70px]">
+    <div className="cursor-pointer laptop:w-[30px] laptop:h-[30px] desktop:w-[35px] desktop:h-[35px]">
       <Image
         className="w-full h-full"
         width={50}
@@ -36,7 +36,7 @@ const NextArrow = () => {
 };
 const PrevArrow = () => {
   return (
-    <div className="cursor-pointer rotate-180 tablet:w-[30px] tablet:h-[45px] laptop:w-[40px] laptop:h-[60px] desktop:w-[50px] desktop:h-[70px]">
+    <div className="cursor-pointer rotate-180 laptop:w-[30px] laptop:h-[30px] desktop:w-[35px] desktop:h-[35px]">
       <Image
         className="w-full h-full"
         width={50}

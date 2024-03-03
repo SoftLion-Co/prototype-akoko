@@ -23,7 +23,7 @@ interface ProductCardData {
 
 const NextArrow = () => {
   return (
-    <div className="cursor-pointer tablet:w-[30px] tablet:h-[45px] laptop:w-[40px] laptop:h-[60px] desktop:w-[50px] desktop:h-[70px]">
+    <div className="cursor-pointer tablet:w-[25px] tablet:h-[25px] ">
       <Image
         className="w-full h-full"
         width={50}
@@ -36,7 +36,7 @@ const NextArrow = () => {
 };
 const PrevArrow = () => {
   return (
-    <div className="cursor-pointer rotate-180 tablet:w-[30px] tablet:h-[45px] laptop:w-[40px] laptop:h-[60px] desktop:w-[50px] desktop:h-[70px]">
+    <div className="cursor-pointer rotate-180 tablet:w-[25px] tablet:h-[25px] ">
       <Image
         className="w-full h-full"
         width={50}
@@ -64,8 +64,8 @@ const TabletSliderColection: React.FC<{
         styles={{
           controls: {
             top: "40%",
-            left: "-5.4%",
-            right: "-5.2%",
+            left: "-6%",
+            right: "-6%",
           },
           control: {
             background: "none",
