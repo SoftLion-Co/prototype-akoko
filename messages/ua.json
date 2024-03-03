@@ -69,7 +69,8 @@
   },
   "sertificate-page":{
     "sertificate-section":{
-      "title": "Сертифікат"
+      "title": "Сертифікат",
+      "button": "В кошик"
     }
   }
 }

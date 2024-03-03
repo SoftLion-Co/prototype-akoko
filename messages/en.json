@@ -69,7 +69,8 @@
   },
   "sertificate-page":{
     "sertificate-section":{
-      "title": "Sertificate"
+      "title": "Sertificate",
+      "button": "To the cart"
     }
   }
 }
