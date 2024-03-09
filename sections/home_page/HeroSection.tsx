@@ -86,24 +86,13 @@ const HeroSection = () => {
                 height: "100%",
               },
             },
+
             indicators: {
               fontSize: "1em",
               alignItems: "center",
               bottom: "50%",
               left: "60%",
               transform: "translateY(50%)",
-              gap: "2px",
-            },
-            indicators: {
-              position: "absolute",
-              top: "1px",
-              bottom: "0",
-              width: "90%",
-              padding: "0 15px",
-              margin: "0 auto",
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
               gap: "2px",
 
               "@media (min-width: 768px)": {
@@ -121,6 +110,7 @@ const HeroSection = () => {
                 gap: "12px",
               },
             },
+
             indicator: {
               zIndex: 10,
               height: "7px",
@@ -159,6 +149,7 @@ const HeroSection = () => {
                 },
               },
             },
+            
             controls: {
               display: "none",
 

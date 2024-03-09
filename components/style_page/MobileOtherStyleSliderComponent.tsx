@@ -42,15 +42,13 @@ const MobileOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
       >
         {cardItem.map((card, index) => (
           <Carousel.Slide className="text-center" key={index}>
-            <div>
-              <StyleCardComponent
-                key={index}
-                name={card.title}
-                image={card.image}
-                link={card.link}
-                classImage="h-[300px]"
-              />
-            </div>
+            <StyleCardComponent
+              key={index}
+              name={card.title}
+              image={card.image}
+              link={card.link}
+              classImage="h-[300px]"
+            />
           </Carousel.Slide>
         ))}
       </Carousel>

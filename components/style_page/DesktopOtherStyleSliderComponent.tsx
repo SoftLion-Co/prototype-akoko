@@ -31,7 +31,7 @@ const PrevArrow = () => {
         height={50}
         src={"https://www.svgrepo.com/show/257704/right-chevron-chevron.svg"}
         alt=">"
-      ></Image>
+      />
     </div>
   );
 };
@@ -76,7 +76,6 @@ const DesktopOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
         >
           {cardItem.map((card, index) => (
             <Carousel.Slide className="text-center" key={index}>
-              {/* <div> */}
               <StyleCardComponent
                 key={index}
                 name={card.title}
@@ -84,13 +83,11 @@ const DesktopOtherStyleSliderComponent: React.FC<{ cardItem: CardProps[] }> = ({
                 link={card.link}
                 classImage="tablet:!w-full"
               />
-              {/* </div> */}
             </Carousel.Slide>
           ))}
         </Carousel>
       ) : (
         <div className="flex flex-wrap justify-center mb-[10%] tablet:gap-[19px] laptop:gap-[40px] desktop:gap-[50px]">
-          {" "}
           {/* Показуємо всі карточки без слайдера */}
           {cardItem.map((card, index) => (
             <StyleCardComponent
