@@ -66,5 +66,11 @@
     "other-style-section": {
       "title": "Other styles"
     }
+  },
+  "sertificate-page":{
+    "sertificate-section":{
+      "title": "Sertificate",
+      "button": "To the cart"
+    }
   }
 }

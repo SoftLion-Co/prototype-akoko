@@ -66,5 +66,11 @@
     "other-style-section": {
       "title": "Інші стилі"
     }
+  },
+  "sertificate-page":{
+    "sertificate-section":{
+      "title": "Сертифікат",
+      "button": "В кошик"
+    }
   }
 }
