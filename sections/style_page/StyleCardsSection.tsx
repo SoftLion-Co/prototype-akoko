@@ -7,6 +7,7 @@ import { useMediaQuery } from "@mantine/hooks";
 
 import { Pagination } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
+import PaginationComponent from "@/components/PaginationComponent";
 
 type CardProps = {
   id: string;
@@ -155,7 +156,6 @@ const StyleCardsSection = () => {
     }
   });
 
-  const isPaginationNeeded = filteredCardItems.length > cardsPerPage;
   const paginatedCardItems = filteredCardItems.slice(startIndex, endIndex);
 
   const handleButtonClick = (id: string) => {
@@ -167,10 +167,6 @@ const StyleCardsSection = () => {
       return updatedStyles;
     });
     setCurrentPage(1);
-  };
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
   };
 
   return (
@@ -217,34 +213,13 @@ const StyleCardsSection = () => {
           ))}
         </div>
       </div>
-      <div className=" flex justify-center">
-        {isPaginationNeeded && (
-          <div>
-            <Pagination
-              size="lg"
-              withControls={false}
-              total={Math.ceil(filteredCardItems.length / cardsPerPage)}
-              color="rgba(255, 255, 255, 0)"
-              onChange={handlePageChange}
-              value={currentPage}
-              styles={{
-                control: {
-                  border: "none",
-                  backgroundColor: "transparent",
-                  "&[data-active]": {
-                    color: "black",
-                    fontWeight: 700,
-                    border: "1px solid #CECECE",
-                    backgroundColor: "transparent",
-                  },
-                },
-                dots: {
-                  color: "#8B8B8B",
-                },
-              }}
-            />
-          </div>
-        )}
+      <div className="flex justify-center">
+        <PaginationComponent
+          totalItems={filteredCardItems.length}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          itemsPerPage={cardsPerPage}
+        />
       </div>
     </section>
   );
